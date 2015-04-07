@@ -35,7 +35,7 @@ Produit.reopenClass({
   FIXTURES: [
     { 
       id: 1,
-      photo_url: 'assets/img/paindemiebiocasino.jpg',
+      photo_url: 'assets/img/paindemiebiocasinocroppedall.jpg',
       marque: 'Distrib',
       denomination: 'Pain de mie',
       description: 'Grâce à ses grandes tranches moelleuses et savoureuses, ce pain de mie fabriqué dans le respect de l\'agriculture biologique vous accompagnera agréablement dans tous vos instants de consommation',

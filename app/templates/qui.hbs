@@ -1,14 +1,14 @@
 <div class="row">
-  <div class="alert alert-success col-md-10 col-md-offset-1" role="alert">
+  <div class="alert alert-success col-lg-10 col-lg-offset-1 col-md-12" role="alert">
     <h3 class="text-center" data-position="bottom" data-intro="<p>Qui se cache derrière les produits que nous achetons ?</p><p>Nous nourrir en toute confiance implique de connaître l'ensemble de la chaîne d'élaboration du produit : la composition, la provenance et la fabrication mais également les acteurs présents au cours des différentes étapes de fabrication.</p><strong>Attention, les données affichées ici sont fictives.</strong>">Qui a fabriqué ce produit ?
     </h3>
   </div>
-  <div class="col-md-3 col-md-offset-1">
+  <div class="col-lg-3 col-lg-offset-1 col-md-4">
     <div class="panel panel-default" data-position="right" data-intro="<p>La marque est ce que l'on voit en premier lorsque nous achetons un produit, mais elle ne constitue parfois pas l'acteur principal dans l'élaboration du produit. Il est donc intéressant d'avoir plus d'informations sur cet acteur.</p>">
       <div class="panel-heading"><h4 class="title-center">Marque</h4></div>
       <div class="panel-body">
         <ul class="list-group">
-          <li class="list-group-item"><img class="img-responsive" src="assets/img/GroupeCasino-2013.png"/></li>
+          <li class="list-group-item"><img class="img-responsive img-center" src="assets/img/GroupeCasino-2013.png"/></li>
           <li class="list-group-item">Marque <span class="badge">{{model.marque}}</span></li>
           <li class="list-group-item">Description : Le groupe {{model.marque}} est un groupe de distribution en France et dans le monde. Il est dirigé par John Doe, est coté à la bourse de Paris et a pour actionnaire majoritaire la société Foobar.</li>
           <li class="list-group-item">Siège social <span class="badge">Paris (France)</span></li>
@@ -24,15 +24,15 @@
       </div>
     </div>
   </div>
-  <div class="col-md-4">
+  <div class="col-lg-4 col-md-4">
     <div class="row">
-      <div class="col-md-2 btn-group-vertical indicateurs" data-position="left" data-intro="<p>Les intermédiaires restent souvent dans l'ombre de la marque. Les connaître permet de mieux comprendre ce que nous mangeons, et de nous rendre compte de l'industrialisation de l'alimentation.</p>" role="group">
+      <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4 btn-group-vertical indicateurs" data-position="left" data-intro="<p>Les intermédiaires restent souvent dans l'ombre de la marque. Les connaître permet de mieux comprendre ce que nous mangeons, et de nous rendre compte de l'industrialisation de l'alimentation.</p>" role="group">
         <a data-trigger="focus" tabindex="0" role="button" data-toggle="popover" title="Intermédiaires" data-content="11 intermédiaires différents ont contribué à l'élaboration de ce produit" data-placement="right" class="btn btn-danger">11<span class="glyphicon glyphicon-user"></span></a>
       </div>
-      <div class="col-md-8">
-        <div class="img-product"><img class="img-responsive" {{bind-attr src=model.photo_url}}/></div>
+      <div class="col-lg-8 col-md-6 col-sm-4 col-xs-4">
+        <div class="img-product"><img class="img-center img-responsive" {{bind-attr src=model.photo_url}}/></div>
       </div>
-      <div class="col-md-2 btn-group-vertical indicateurs" role="group">
+      <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4 btn-group-vertical indicateurs" role="group">
         <a data-trigger="focus" tabindex="0" role="button" data-toggle="popover" title="Distance par rapport aux producteurs" data-content="4 niveaux d'intermédiaires vous séparent des producteurs de matière première." data-placement="left" class="btn btn-warning" data-position="right" data-intro="<p>La distance correspond au nombre de niveaux nous séparant des producteurs. Cette donnée est importante car la multiplication des niveaux a pour effet direct l'augmentation de l'impact écologique, un rapport prix/qualité favorable à l'un ou à l'autre et la perte de maîtrise sur notre alimentation.</p>">4<span class="glyphicon glyphicon-map-marker"></span></a>
       </div>
     </div>
@@ -57,9 +57,9 @@
       </div>
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-lg-3 col-md-4">
     <div class="panel panel-default" data-position="left" data-intro="<p>Avoir le détail de ces intermédiaires, et la manière dont ils interagissent entre eux (cliquez sur 'Détails' !) permet de récupérer un peu de cette maîtrise et de consommer en connaissance de cause.</p>">
-      <div class="panel-heading"><button type='button' class='btn btn-primary pull-right' data-toggle='modal' data-target='#distangeImgModal'>Détails</button><h4 class="text-center">11 intermédiaires</h4></div>
+      <div class="panel-heading"><button type='button' class='btn btn-primary pull-right' data-toggle='modal' data-target='#distangeImgModal'>Détails</button><h4 class="text-center">Intermédiaires</h4></div>
       <div class="panel-body">
         <h1 class="text-center"><span class="glyphicon glyphicon-shopping-cart"></span></h1>
         <h4 class="text-center">1 distributeur</h4>

@@ -1,9 +1,9 @@
 <div class="row">
-  <div class="alert alert-success col-md-10 col-md-offset-1" role="alert">
+  <div class="alert alert-success col-lg-10 col-lg-offset-1 col-md-12" role="alert">
     <h3 class="text-center" data-intro="<p>Nous voudrions bien savoir de quoi sont composés les produits que nous consommons.</p><p>Oui mais voilà, les étiquettes n'affichent jamais ce qu'il faut, soit trop d'informations, soit pas assez... Voici un exemple de ce que pourrait proposer Feedes.</p><strong>Attention, les données affichées ici sont fictives.</strong>">De quoi est composé ce produit ?
     </h3>
   </div>
-  <div class="col-md-2 col-md-offset-1">
+  <div class="col-lg-3 col-lg-offset-1 col-md-3">
     <div class="panel panel-default">
       <div class="panel-heading"><h4 class="title-center" data-intro="Les informations nutritionnelles... Un classique ! Il est cependant difficile de s'y retrouver...">Infos nutritionnelles</h4></div>
       <div class="panel-body" data-position="right" data-intro="Ces informations ne sont intéressantes que si elles ont un sens pour nous, si elles sont comparables et surtout si elles sont adaptées à la personne qui consomme le produit.. Essayez pour voir !">
@@ -42,30 +42,30 @@
         {{/if}}
         </ul>
         <h4>Note nutritionnelle</h4>
-        <div class="img-product"><img class="img-responsive" src="http://fr.openfoodfacts.org/images/misc/b.338x72.png"/></div>
+        <div class="img-product"><img class="img-center img-responsive" src="http://fr.openfoodfacts.org/images/misc/b.338x72.png"/></div>
       </div>
     </div>
   </div>
-  <div class="col-md-6">
+  <div class="col-lg-4 col-md-6">
     <div class="row">
-      <div class="col-md-2 btn-group-vertical indicateurs" role="group" data-position="left" data-intro="Des indicateurs avec un code couleur adapté permettraient de voir d'un coup d'oeil les informations importantes en rapport avec notre santé. N'ayez pas peur, cliquez !">
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 btn-group-vertical indicateurs" role="group" data-position="left" data-intro="Des indicateurs avec un code couleur adapté permettraient de voir d'un coup d'oeil les informations importantes en rapport avec notre santé. N'ayez pas peur, cliquez !">
         <a data-trigger="focus" tabindex="0" role="button" data-toggle="popover" title="Matières grasses et lipides" data-content="Quantité modérée : 5.9 g par tranche" data-placement="right" class="btn btn-sm btn-warning">Lipides</a>
-        <a data-trigger="focus" tabindex="1" role="button" data-toggle="popover" data-placement="right" title="Acides gras saturés" data-content="Quantité faible : 0.5 g par tranche" class="btn btn-sm btn-success">Acides gras saturés</a>
+        <a data-trigger="focus" tabindex="1" role="button" data-toggle="popover" data-placement="right" title="Acides gras saturés" data-content="Quantité faible : 0.5 g par tranche" class="btn btn-sm btn-success">AGS</a>
         <a data-trigger="focus" tabindex="2" role="button" data-toggle="popover" data-placement="right" title="Sucres" data-content="Quantité modérée : 5.7 g par tranche" class="btn btn-sm btn-warning">Sucres</a>
         <a data-trigger="focus" tabindex="3" role="button" data-toggle="popover" data-placement="right" title="Sel" data-content="Quantité modérée : 1.4 g par tranche" class="btn btn-sm btn-warning">Sel</a>
       </div>
-      <div class="col-md-8">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
         <div class="img-product">
-          <img height="400" {{bind-attr src=model.photo_url}}/>
+          <img class="img-center img-responsive" {{bind-attr src=model.photo_url}}/>
         </div>
       </div>
-      <div class="col-md-2 btn-group-vertical indicateurs" role="group">
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 btn-group-vertical indicateurs" role="group">
         <a data-trigger="focus" tabindex="0" role="button" data-toggle="popover" data-placement="left" title="Additifs" data-content="Aucun" class="btn btn-sm btn-success">Additifs</a>
-        <a data-trigger="focus" tabindex="1" role="button" data-toggle="popover" data-placement="left" title="Labels" data-content="Agriculture biologique" class="btn btn-sm btn-default"><img src="assets/img/logobiofr.png" alt="Bio" class="img-responsive">&nbsp;<img class="img-responsive" src="assets/img/logobioue.png"/></a>
+        <a data-trigger="focus" tabindex="1" role="button" data-toggle="popover" data-placement="left" title="Labels" data-content="Agriculture biologique" class="btn btn-sm btn-default"><img src="assets/img/logobiofr.png" alt="Bio" class="img-center img-responsive">&nbsp;<img class="img-center img-responsive" src="assets/img/logobioue.png"/></a>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-lg-12 col-md-12">
         <div class="panel panel-default">
           <div class="panel-heading"><h4 class="title-center">Produit</h4></div>
           <div class="panel-body">
@@ -78,7 +78,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-2">
+  <div class="col-lg-3 col-md-3">
     <div data-position="left" data-intro="<p>Plus besoin de chercher les informations sur les étiquettes, nous disposons ici d'un affichage unifié pour tous les produits !</p><p>Et si ça ne m'intéresse pas, je n'ai qu'à cliquer sur la croix pour le supprimer !</p>">
       <div {{bind-attr class="showPanelClass :panel :panel-default"}}>
         <div class="panel-heading"><span class="pull-right close" {{action 'closePanel'}}><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></span><h4 class="title-center">Conditionnement</h4></div>
@@ -104,7 +104,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-lg-8 col-lg-offset-2 col-md-12">
     <div class="panel panel-default" data-position="top" data-intro="<p>Enfin, pour les plus attentifs d'entre nous... Voilà !</p>">
       <div class="panel-heading"><h4 class="title-center">Composition</h4></div>
       <div class="panel-body">
@@ -113,87 +113,88 @@
             <thead>
               <tr>
                 <th rowspan="2">Ingrédient</th>
-                <th colspan="3">Proportions</th>
-                <th rowspan="2">Labels</th>
+                <th class="visible-md visible-lg" colspan="3">Proportions</th>
+                <th class="visible-xs visible-sm" colspan="1">Proportions</th>
+                <th class="hidden-xs" rowspan="2">Labels</th>
                 <th rowspan="2">Origine</th>
                 <th rowspan="2">Actions</th>
               </tr>
               <tr>
                 <th>%</th>
-                <th>Total</th>
-                <th>Portion</th>
+                <th class="visible-md visible-lg">Total</th>
+                <th class="visible-md visible-lg">Portion</th>
               </tr>
             </thead>
             <tbody>
               <tr class="success">
                 <th scope="row">Farine de blé</th>
                 <td>55,6 %</td>
-                <td>278 g <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
-                <td>19,9 g <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
-                <td><img height="25" src="assets/img/logobiofr.png"/>&nbsp;<img height="25" src="assets/img/logobioue.png"/></td>
+                <td class="visible-md visible-lg">278 g <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
+                <td class="visible-md visible-lg">19,9 g <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
+                <td class="hidden-xs"><img height="25" src="assets/img/logobiofr.png"/>&nbsp;<img height="25" src="assets/img/logobioue.png"/></td>
                 <td>Allemagne <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
                 <td><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon-euro" aria-hidden="true"></span></td>
               </tr>
               <tr>
                 <th scope="row">Eau</th>
                 <td>24 %</td>
-                <td>120 ml <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
-                <td>8,6 ml <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
-                <td></td>
+                <td class="visible-md visible-lg">120 ml <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
+                <td class="visible-md visible-lg">8,6 ml <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
+                <td class="hidden-xs" ></td>
                 <td>France <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
                 <td><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon-euro" aria-hidden="true"></span></td>
               </tr>
               <tr class="success">
                 <th scope="row">Huile de colza</th>
                 <td>13,4 %</td>
-                <td>67 ml <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
-                <td>4.8 ml <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
-                <td><img height="25" src="assets/img/logobiofr.png"/>&nbsp;<img height="25" src="assets/img/logobioue.png"/></td>
+                <td class="visible-md visible-lg">67 ml <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
+                <td class="visible-md visible-lg">4.8 ml <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
+                <td class="hidden-xs"><img height="25" src="assets/img/logobiofr.png"/>&nbsp;<img height="25" src="assets/img/logobioue.png"/></td>
                 <td>Canada <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
                 <td><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon-euro" aria-hidden="true"></span></td>
               </tr>
               <tr class="success">
                 <th scope="row">Sucre roux de canne</th>
                 <td>3%</td>
-                <td>15 g <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
-                <td>1,1 g <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
-                <td><img height="25" src="assets/img/logobiofr.png"/>&nbsp;<img height="25" src="assets/img/logobioue.png"/></td>
+                <td class="visible-md visible-lg">15 g <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
+                <td class="visible-md visible-lg">1,1 g <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
+                <td class="hidden-xs"><img height="25" src="assets/img/logobiofr.png"/>&nbsp;<img height="25" src="assets/img/logobioue.png"/></td>
                 <td>Brésil <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
                 <td><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon-euro" aria-hidden="true"></span></td>
               </tr>
               <tr>
                 <th scope="row">Levure</th>
                 <td>1,5 %</td>
-                <td>7,5 g <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
-                <td>504 mg <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
-                <td></td>
+                <td class="visible-md visible-lg">7,5 g <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
+                <td class="visible-md visible-lg">504 mg <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
+                <td class="hidden-xs"></td>
                 <td>Allemagne <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
                 <td><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon-euro" aria-hidden="true"></span></td>
               </tr>
               <tr class="success">
                 <th scope="row">Vinaigre de cidre</th>
                 <td>1 %</td>
-                <td>5 g <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
-                <td>710 mg <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
-                <td><img height="25" src="assets/img/logobiofr.png"/>&nbsp;<img height="25" src="assets/img/logobioue.png"/></td>
+                <td class="visible-md visible-lg">5 g <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
+                <td class="visible-md visible-lg">710 mg <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
+                <td class="hidden-xs"><img height="25" src="assets/img/logobiofr.png"/>&nbsp;<img height="25" src="assets/img/logobioue.png"/></td>
                 <td>Tunisie <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
                 <td><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon-euro" aria-hidden="true"></span></td>
               </tr>
               <tr>
                 <th scope="row">Sel</th>
                 <td>0,7 %</td>
-                <td>3,5 g <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
-                <td>250 mg <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
-                <td></td>
+                <td class="visible-md visible-lg">3,5 g <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
+                <td class="visible-md visible-lg">250 mg <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
+                <td class="hidden-xs"></td>
                 <td>France <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
                 <td><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon-euro" aria-hidden="true"></span></td>
               </tr>
               <tr class="success">
                 <th scope="row">Malt d'orge</th>
                 <td>0,3 %</td>
-                <td>1,5 g <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
-                <td>107 mg <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
-                <td><img height="25" src="assets/img/logobiofr.png"/>&nbsp;<img height="25" src="assets/img/logobioue.png"/></td>
+                <td class="visible-md visible-lg">1,5 g <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
+                <td class="visible-md visible-lg">107 mg <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
+                <td class="hidden-xs"><img height="25" src="assets/img/logobiofr.png"/>&nbsp;<img height="25" src="assets/img/logobioue.png"/></td>
                 <td>Allemagne <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></td>
                 <td><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>&nbsp;<span class="glyphicon glyphicon-euro" aria-hidden="true"></span></td>
               </tr>

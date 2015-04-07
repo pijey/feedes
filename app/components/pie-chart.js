@@ -3,7 +3,7 @@ import Ember from "ember";
 export default Ember.Component.extend({
   classNames: 'pie-chart',
   theme: 'none',
-  radius: 110,
+  radius: '45%',
   marginTop: 0,
   marginBottom: 0,
   dataProvider: null,

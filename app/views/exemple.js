@@ -5,7 +5,9 @@ export default Ember.View.extend({
 		Ember.$('[data-toggle="popover"]').popover({container: 'body'});
 	}.on('didInsertElement'),
 	tour: function(){
-		if(!this.get('controller.hideIntro')){
+		var width = Ember.$(window).width();
+
+		if(!this.get('controller.hideIntro') && width >= 992){
 			var intro = introJs()
 				.setOption("showStepNumbers", false)
 				.setOption("skipLabel", "Passer l'intro")

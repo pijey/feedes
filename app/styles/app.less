@@ -6,8 +6,7 @@
 }
 
 .line-chart {
-    width: 930px; 
-    height: 600px;
+    min-height: 550px;
 }
 
 .world-chart {
@@ -63,15 +62,19 @@
 }
 
 /* Image style */
+.img-center {
+    margin: 0 auto;
+}
+
 .transport-icon{
 	margin: 0 10px 0 10px;
 }
 
-.left {
+.panel-body .left {
 	float: left;
 	margin-right: 5px;
 }
-.right {
+.panel-body .right {
 	float: right;
 	margin-left: 5px;
 }
@@ -91,7 +94,7 @@
 @media (max-width: 990px) {
     .odometer {
         font-size: 25px;
-    }    
+    } 
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -99,10 +102,21 @@
     .odometer {
         font-size: 12px;
     }    
+
+    .carousel-caption {
+        padding-bottom: 0px !important;
+    }
+
+    .site-title {
+        font-size: 47.5px;
+    }
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 1300px) { 
+    .site-title {
+        font-size: 67.5px;
+    }
     .odometer {
         font-size: 20px;
     }
@@ -115,14 +129,42 @@
     }
 }
 
-
-
-
-
 /* Bootstrap additions */
+
+.carousel-indicators {
+    bottom: -7px !important;
+}
+
+.navbar-header {
+    margin-left: 15px !important;
+
+}
+.row.home {
+    margin-left: -30px;
+    margin-right: -30px;
+}
+
+.navbar {
+    border-radius: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.site-title {
+    position: absolute;
+    left: 5%;
+    z-index: 99999;
+    color: white;
+    margin-left: 15px;
+    text-shadow: 0px 1px 0px #777, 0px 2px 0px #666, 0px 3px 0px #555, 0px 4px 0px #444, 0px 5px 0px #333, 0px 8px 7px #001135;
+}
+
 .label-as-badge {
     border-radius: 10px;
     font-size: 13px;
+}
+
+.carousel-inner img {
+    width: 100%;    
 }
 
 .popover, .modal {
