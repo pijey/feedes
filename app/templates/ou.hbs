@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="alert alert-success col-md-10 col-md-offset-1" role="alert">
+    <h3 class="text-center" data-position="bottom" data-intro="<p>Une des informations les plus importantes, et sur laquelle nous voulons majoritairement plus de précision. Connaître l'origine exacte des produits présents dans notre assiette permet de se réapproprier l'acte de se nourrir. Bien qu'en progrès, les informations à notre disposition sont insuffisantes.</p><strong>Attention, les données affichées ici sont fictives.</strong>">D'où vient ce produit ?
+      {{!-- <div class="btn-group pull-right" role="group" aria-label="">
+        <button class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
+        <button class="btn btn-primary"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <button class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+      </div> --}}
+    </h3>
+  </div>
+  <div class="col-md-2 col-md-offset-1">
+    <div class="panel panel-default" data-position="right" data-intro="<p>D'un coup d'oeil, nous pourrions visualiser les différentes régions d'origine des ingrédients selon leur proportion (ici au niveau des pays car les ingrédients proviennent du monde, mais pour un produit 100% français, on peut imaginer de descendre au niveau régional, départemental ou même communal !).</p>">
+      <div class="panel-heading"><h4 class="title-center">Provenance des ingrédients</h4></div>
+      <div class="panel-body">
+        {{pie-chart dataProvider=pieChartDataProvider titleField=pieChartCategories valueField=pieChartValues colors=pieChartColors}}
+      </div>
+    </div>
+    <div class="panel panel-default" data-position="right" data-intro="<p>L'origine est multiple et cela porte à confusion lorsque l'on voit une mention d'origine sur une étiquette. Elle peut représenter le lieu de culture des différentes matières premières, ou le lieu de transformation en produit fini, ou parfois même le lieu d'emballage.</p><p>Ici plus de doute !</p>">
+      <div class="panel-heading"><h4 class="title-center">Lieux</h4></div>
+      <div class="panel-body">
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-danger"><span class="badge">Monde</span>Lieu de culture</li>
+          <li class="list-group-item list-group-item-warning"><span class="badge">France</span>Lieu de transformation</li>
+          <li class="list-group-item list-group-item-warning"><span class="badge">France</span>Lieu d'emballage</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 img-product" data-position="left" data-intro="<p>La mondialisation du secteur agro-alimentaire est indéniable et nous nous devons de nous situer géographiquement par rapport à notre nourriture ! Allez-y, cliquez sur les différents ingrédients et parcourez cette carte qui ferait rêver un voyageur mais qui laisse sceptique lorsque cela représente le trajet de notre nourriture...</p>">
+    {{world-chart dataProvider=chartDataProvider}}
+  </div>
+  <div class="col-md-2 indicators-center">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4>Produit</h4></div>
+      <div class="panel-body">
+        <img class="img-responsive" src="assets/img/paindemiebiocasinocropped.jpg"/>
+      </div>
+    </div>
+    <div class="panel panel-default" data-position="left" data-intro="<p>Un indicateur factuel et clair vous permet de connaître la distance minimale parcourue à travers les différentes étapes de production, ou pour chaque ingrédient.</p>">
+      <div class="panel-heading"><h4>Distance minimale parcourue</h4></div>
+      <div class="panel-body">
+        {{#if label}}
+          <p><strong>{{label}}</strong></p>
+          {{ember-odometer value=kms format="(ddd).dd" theme="car"}}&nbsp;&nbsp;&nbsp;kms
+          <p></p>
+        {{/if}}
+        <p><strong>Au total</strong></p>
+        {{ember-odometer value=kmsTotal format="(ddd).dd" theme="car"}}&nbsp;&nbsp;&nbsp;kms
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4 class="title-center">Distances (km)</h4></div>
+      <div class="panel-body">
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-danger"><span class="badge">20 000</span>Production/Fabrication</li>
+          <li class="list-group-item list-group-item-warning"><span class="badge">500</span>Emballage/Vente</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

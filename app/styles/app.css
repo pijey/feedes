@@ -1,0 +1,245 @@
+
+/* Width/Height */
+.pie-chart, .world-chart {
+    width: 100%;
+    height: 100%;
+}
+
+.world-chart {
+    min-height: 650px;
+}
+
+.pie-chart {
+    min-height: 250px;
+}
+
+.img-rounded.img-responsive {
+    max-width: 200px;
+}
+
+#affixDiv{
+    position: relative;
+}
+
+/* Forms */
+.form-group #email {
+    display: none;
+}
+
+/* Titles */
+.indicators-center h4{
+}
+
+.img-product{
+	text-align: center;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.title-center {
+	text-align: center;
+}
+
+.indicators-center {
+	text-align: center;
+}
+
+/* Text styles*/
+.panel-collapse {
+	text-align: justify;
+}
+
+/* Image style */
+.transport-icon{
+	margin: 0 10px 0 10px;
+}
+
+.left {
+	float: left;
+	margin-right: 5px;
+}
+.right {
+	float: right;
+	margin-left: 5px;
+}
+
+/* Table style*/
+.table thead tr th {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.close.pull-right {
+    padding-top: 7px;
+}
+
+/* Font size */
+
+@media (max-width: 990px) {
+    .odometer {
+        font-size: 25px;
+    }    
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 991px) {
+    .odometer {
+        font-size: 12px;
+    }    
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 1300px) { 
+    .odometer {
+        font-size: 20px;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1680px) { 
+    .odometer {
+        font-size: 30px;
+    }
+}
+
+
+
+
+
+/* Bootstrap additions */
+.label-as-badge {
+    border-radius: 10px;
+    font-size: 13px;
+}
+
+.popover, .modal {
+    z-index: 10000001
+}
+
+/* Paddings/Margins */
+
+.affix-nav {
+    top:120px;
+}
+
+.little-top-margin {
+    padding-top: 25px;
+}
+.section-with-round-img {
+    padding-left: 175px;
+}
+.row-with-margin {
+    margin-top: 15px;
+}
+
+.btn-group-vertical.indicateurs > a {
+    margin: 5px 0 5px 0;
+}
+
+.margin-30 {
+    margin-top: 30%;
+}
+
+.alert > h3 {
+    margin-top: 10.5px;
+}
+
+.alert > h3 > .btn-group {
+    margin-top: -7px;
+}
+
+.addWidgetButton {
+    margin-left: 10px;
+}
+
+.input-group-btn.text-center{
+    padding-bottom: 10px;
+}
+
+.tabbed {
+    padding-left: 30px;
+}
+
+.logo {
+    margin-top: -15px;
+    height: 50px;
+}
+
+/* Leds */
+
+.led-red {
+    margin: 20px auto;
+    width: 24px;
+    height: 24px;
+    background-color: #F00;
+    border-radius: 50%;
+    box-shadow: #000 0 -1px 7px 1px, inset #600 0 -1px 9px, #F00 0 2px 12px;
+}
+
+.led-yellow {
+    margin: 20px auto;
+    width: 12px;
+    height: 12px;
+    background-color: #A90;
+    border-radius: 50%;
+    box-shadow: #000 0 -1px 7px 1px, inset #660 0 -1px 9px, #DD0 0 2px 12px;
+}
+
+.led-green {
+    margin: 20px auto;
+    width: 12px;
+    height: 12px;
+    background-color: #690;
+    border-radius: 50%;
+    box-shadow: #000 0 -1px 7px 1px, inset #460 0 -1px 9px, #7D0 0 2px 12px;
+}
+
+.led-blue {
+    margin: 20px auto;
+    width: 12px;
+    height: 12px;
+    background-color: #4AB;
+    border-radius: 50%;
+    box-shadow: #000 0 -1px 7px 1px, inset #006 0 -1px 9px, #06F 0 2px 14px;
+}
+
+ /* Effect */
+.box {
+	margin:20px auto;
+	width:70%;
+	background:#FFF;
+	margin:40px auto;
+}
+
+.effect8
+{
+  	position:relative;       
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.effect8:before, .effect8:after
+{
+	content:"";
+    position:absolute; 
+    z-index:-1;
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:10px;
+    bottom:10px;
+    left:0;
+    right:0;
+    -moz-border-radius:100px / 10px;
+    border-radius:100px / 10px;
+} 
+.effect8:after
+{
+	right:10px; 
+    left:auto;
+    -webkit-transform:skew(8deg) rotate(3deg); 
+       -moz-transform:skew(8deg) rotate(3deg);     
+        -ms-transform:skew(8deg) rotate(3deg);     
+         -o-transform:skew(8deg) rotate(3deg); 
+            transform:skew(8deg) rotate(3deg);
+}  

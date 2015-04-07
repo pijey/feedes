@@ -2,7 +2,16 @@
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-var app = new EmberApp();
+var app = new EmberApp({
+  'ember-cli-bootswatch': {
+    'theme': 'flatly', 
+    'excludeJS': false   
+  },
+  
+  minifyCSS: {
+    enabled: true
+  },
+});
 
 // Use `app.import` to add additional libraries to the generated
 // output files.
@@ -17,4 +26,14 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
+app.import('bower_components/odometer/themes/odometer-theme-car.css');
+app.import('bower_components/ember/ember-template-compiler.js');
+app.import('bower_components/amcharts/dist/amcharts/amcharts.js');
+app.import('bower_components/amcharts/dist/amcharts/pie.js');
+app.import('bower_components/amcharts/dist/amcharts/serial.js');
+
+app.import('bower_components/ammap/dist/ammap/ammap_amcharts_extension.js');
+app.import('bower_components/ammap/dist/ammap/maps/js/worldLow.js');
+app.import('bower_components/ammap/dist/ammap/ammap.css');
+app.import('bower_components/amcharts/dist/amcharts/plugins/responsive/responsive.js');
 module.exports = app.toTree();

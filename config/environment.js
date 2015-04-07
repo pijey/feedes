@@ -3,9 +3,19 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'feedes',
+    minifyJs: false,
     environment: environment,
     baseURL: '/',
-    locationType: 'auto',
+    locationType: 'history',
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' use.typekit.net connect.facebook.net maps.googleapis.com maps.gstatic.com",
+      'font-src': "'self' data: use.typekit.net",
+      'connect-src': "'self'",
+      'img-src': "'self'",
+      'style-src': "'self' 'unsafe-inline' use.typekit.net",
+      'frame-src': "s-static.ak.facebook.com static.ak.facebook.com www.facebook.com"
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -40,7 +50,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.minifyJs = true;
+    ENV.baseURL = '/feedes/';
   }
 
   return ENV;

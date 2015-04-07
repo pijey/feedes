@@ -1,0 +1,57 @@
+<div class="alert alert-success col-md-10 col-md-offset-1" role="alert">
+    <h3 class="text-center" data-position="bottom" data-intro="<p>Où va votre argent ?</p><p>Le prix est un critère d'achat très important pour la majorité d'entre nous. Mais que payons-nous vraiment ? Ou plutôt qui ? Bien que tabou, la transparence du prix de vente est importante pour rétablir la confiance.</p><strong>Attention, les données affichées ici sont fictives.</strong>">Que payez-vous ?
+      {{!-- <div class="btn-group pull-right" role="group" aria-label="">
+        <button class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
+        <button class="btn btn-primary"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <button class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+      </div> --}}
+    </h3>
+  </div>
+<div class="row">
+  <div class="col-md-2 col-md-offset-1">
+    <div class="panel panel-default indicators-center" data-position="right" data-intro="<p>Ce prix correspond à ce que nous déboursons lors de notre passage en caisse. Mais que couvre-t-il ? Dans quels postes et avec quelles proportions cette somme d'argent est-elle distribuée ?</p>">
+      <div class="panel-heading"><h4>Prix public de vente</h4></div>
+      <div class="panel-body">
+      <h3>{{model.prix_conditionnement}} €</h3>
+        {{pie-chart dataProvider=chartDataProvider colors=chartColors titleField=chartCategories valueField=chartValues}}
+      </div>
+    </div>
+    <div class="panel panel-default" data-position="right" data-intro="<p>Mettre en rapport des données relatives au prix de vente avec les données financières du distributeur (ou du producteur) peut permettre de voir la justesse du prix de vente.</p>">
+      <div class="panel-heading text-center"><h4>Informations Marque</h4></div>
+      <div class="panel-body">
+        <ul class="list-group">
+          <li class="list-group-item"><span class="badge">30,4 mds €</span>Masse salariale <span class="glyphicon glyphicon-triangle-top text-success"></span></li>
+          <li class="list-group-item"><span class="badge">48,6 mds €</span>Chiffre d'affaire <span class="glyphicon glyphicon-triangle-top text-success"></span></li>
+          <li class="list-group-item"><span class="badge">967 M€</span>Résultat opérationnel <span class="glyphicon glyphicon-triangle-bottom text-warning"></span></li>
+          <li class="list-group-item"><span class="badge">468 M€</span>Résultat net <span class="glyphicon glyphicon-triangle-bottom text-warning"></span></li>
+          <li class="list-group-item"><span class="badge">3,12 € par action</span>Valorisation <span class="glyphicon glyphicon-triangle-top text-success"></span></li>
+          <li class="list-group-item"><span class="badge">326 M€</span>Charge d'impôt <span class="glyphicon glyphicon-triangle-top text-success"></span></li>
+        </ul>
+      </div>
+    </div>
+   
+  </div>
+  <div class="col-md-6" data-position="left" data-intro="<p>Il est aussi intéressant de connaître ce que touche chaque type d'acteur et l'évolution de ces rémunérations au cours du temps.</p>">
+      {{line-chart}}
+  </div>
+  <div class="col-md-2">
+    <div class="panel panel-default indicators-center">
+      <div class="panel-heading text-center"><h4>Produit</h4></div>
+      <div class="panel-body">
+        <img width="220" src="assets/img/paindemiebiocasinocropped.jpg"/>
+      </div>
+    </div>
+    <div class="panel panel-default" data-position="left" data-intro="<p>Pouvoir comparer le prix de vente entre les produits est important mais comparer la part de rémunération de chaque type d'acteur avec celle des autres produits peut également influencer l'acte d'achat.</p>">
+      <div class="panel-heading text-center"><h4>Comparatif</h4></div>
+      <div class="panel-body">
+        <p>Sur la base des autres produits référencés de même catégorie</p>
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-warning"><span class="badge">+11,9 %</span>Prix de vente </li>
+          <li class="list-group-item list-group-item-success"><span class="badge">+9,8 %</span>Part producteur : </li>
+          <li class="list-group-item list-group-item-success"><span class="badge">-8,5 %</span>Part distributeur</li>
+          <li class="list-group-item list-group-item-success"><span class="badge">-7,5 %</span>Part transformateur</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

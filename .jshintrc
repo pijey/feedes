@@ -2,7 +2,9 @@
   "predef": [
     "document",
     "window",
-    "-Promise"
+    "-Promise",
+    "AmCharts",
+    "introJs"
   ],
   "browser": true,
   "boss": true,
