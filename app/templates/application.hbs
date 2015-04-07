@@ -1,64 +1,57 @@
+{{!-- Header --}}
 <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-        {{#link-to 'home' classNames="navbar-brand"}}<img src="assets/img/logo2.png" class="logo"/>{{/link-to}}
-        <p class="navbar-text hidden">La transparence alimentaire</p>
-      </div>
-    
-    <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li>{{#link-to 'projet'}}Le projet{{/link-to}}</li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                  Exemples<span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li>{{#link-to 'qui'}}Acteurs{{/link-to}}</li>
-                <li>{{#link-to 'quoi'}}Composition{{/link-to}}</li>
-                <li>{{#link-to 'ou'}}Origine{{/link-to}}</li>
-                {{!-- <li>{{#link-to 'quand'}}Quand{{/link-to}}</li> --}}
-                <li>{{#link-to 'comment'}}Fabrication{{/link-to}}</li>
-                <li>{{#link-to 'combien'}}Prix{{/link-to}}</li>
-                {{!-- <li>{{#link-to 'pourquoi'}}Pourquoi{{/link-to}}</li> --}}
-              </ul>
-            </li>
-              
-            <li>{{#link-to 'sondage'}}Sondage{{/link-to}}</li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li>{{#link-to 'contact'}}Contact{{/link-to}}</li>
-            <li>{{#link-to 'a-propos'}}A propos{{/link-to}}</li>
-          </ul>
-          {{!-- <button type="button" class="addWidgetButton btn btn-default navbar-left navbar-btn"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> --}}
-          {{!-- <form class="navbar-form navbar-right" role="search">
-              <div class="form-group">
-                {{input type="text" class="form-control" name="productId" placeholder="Produit, marque..." valueBinding="productId"}}
-              </div>
-              <button type="submit" class="btn btn-default" {{action 'search'}}><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Rechercher</button>
-          </form> --}}
-      </div><!-- /.navbar-collapse -->
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    {{#link-to 'home' classNames="navbar-brand"}}<img src="assets/img/logo2.png" class="logo"/>{{/link-to}}
+    <p class="navbar-text hidden">La transparence alimentaire</p>
     </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li>{{#link-to 'projet'}}Le projet{{/link-to}}</li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              Exemples<span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li>{{#link-to 'qui'}}Acteurs{{/link-to}}</li>
+            <li>{{#link-to 'quoi'}}Composition{{/link-to}}</li>
+            <li>{{#link-to 'ou'}}Origine{{/link-to}}</li>
+            <li>{{#link-to 'comment'}}Fabrication{{/link-to}}</li>
+            <li>{{#link-to 'combien'}}Prix{{/link-to}}</li>
+          </ul>
+        </li>
+          
+        <li>{{#link-to 'sondage'}}Sondage{{/link-to}}</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>{{#link-to 'contact'}}Contact{{/link-to}}</li>
+        <li>{{#link-to 'a-propos'}}A propos{{/link-to}}</li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
+{{!-- Content --}}
 <div class="container-fluid">
   {{outlet}}
 </div>
 
+{{!-- Footer --}}
 <div class="container text-center">
-    <hr />
-    <div class="row">
-        <div class="col-lg-12">
-            <ul class="nav nav-pills nav-justified">
-                <li><img src="assets/img/glyphicons-399-copyright-mark.png" alt="Copyright"> Feedes 2015</li>
-                <li><a href="https://fr.linkedin.com/in/pjvilloud"><img src="assets/img/social-18-linked-in.png" alt="" /> LinkedIn</a></li>
-                <li><a href="https://twitter.com/pjvilloud"><img src="assets/img/social-32-twitter.png" alt="" /> Twitter</a></li>
-            </ul>
-        </div>
+  <hr />
+  <div class="row">
+    <div class="col-lg-12">
+      <ul class="nav nav-pills nav-justified">
+        <li><img src="assets/img/glyphicons-399-copyright-mark.png" alt="Copyright"> Feedes 2015</li>
+        <li><a href="https://fr.linkedin.com/in/pjvilloud"><img src="assets/img/social-18-linked-in.png" alt="" /> LinkedIn</a></li>
+        <li><a href="https://twitter.com/pjvilloud"><img src="assets/img/social-32-twitter.png" alt="" /> Twitter</a></li>
+      </ul>
     </div>
+  </div>
 </div>

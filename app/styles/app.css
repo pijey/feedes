@@ -5,6 +5,11 @@
     height: 100%;
 }
 
+.line-chart {
+    width: 930px; 
+    height: 600px;
+}
+
 .world-chart {
     min-height: 650px;
 }
@@ -19,6 +24,14 @@
 
 #affixDiv{
     position: relative;
+}
+
+#myAffix {
+    width: 330px;
+}
+
+#projetDiv .img-circle {
+    width: 150px;
 }
 
 /* Forms */
@@ -125,9 +138,15 @@
 .little-top-margin {
     padding-top: 25px;
 }
-.section-with-round-img {
-    padding-left: 175px;
+
+.section-with-round-img img {
+    padding-left: 10px;
+    padding-right: 10px;
 }
+.constats .img-rounded {
+    margin-left: 10px;
+}
+
 .row-with-margin {
     margin-top: 15px;
 }

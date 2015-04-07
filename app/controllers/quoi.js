@@ -46,7 +46,7 @@ export default Ember.Controller.extend({
 			this.set('apportsRecommande', true);
 			Ember.$("#infosNutritionnellesBtnLabel").html("Apports nutritionnels");
 		},
-		closePanel: function(event){
+		closePanel: function(){
 			this.set('showPanelClass', "hidden");
 		},
 	},

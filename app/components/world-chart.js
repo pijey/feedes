@@ -3,6 +3,8 @@ import Ember from "ember";
 export default Ember.Component.extend({
   classNames: 'world-chart',
   dataProvider: null,
+  theme: "none",
+  fontSize: 15,
   didInsertElement: function() {
     
     this.set('parentView.controller.kmsTotal', 20500.5);
@@ -11,8 +13,8 @@ export default Ember.Component.extend({
 
     var map = AmCharts.makeChart("chartdiv", {
       type: "map",
-      "theme": "none",
-      fontSize: 15,
+      theme: this.theme,
+      fontSize: this.fontSize,
       fontFamily: "Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif",
       pathToImages: "http://www.amcharts.com/lib/3/images/",
 
@@ -36,7 +38,6 @@ export default Ember.Component.extend({
       zoomControl:{
         buttonFillColor:"#2C3E50"
       },
-
 
       backgroundZoomsToTop: true,
       linesAboveImages: true,

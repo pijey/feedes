@@ -1,18 +1,12 @@
 <div class="alert alert-success col-md-10 col-md-offset-1" role="alert">
-    <h3 class="text-center" data-position="bottom" data-intro="<p>Où va votre argent ?</p><p>Le prix est un critère d'achat très important pour la majorité d'entre nous. Mais que payons-nous vraiment ? Ou plutôt qui ? Bien que tabou, la transparence du prix de vente est importante pour rétablir la confiance.</p><strong>Attention, les données affichées ici sont fictives.</strong>">Que payez-vous ?
-      {{!-- <div class="btn-group pull-right" role="group" aria-label="">
-        <button class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
-        <button class="btn btn-primary"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-        <button class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
-      </div> --}}
-    </h3>
-  </div>
+  <h3 class="text-center" data-position="bottom" data-intro="<p>Où va votre argent ?</p><p>Le prix est un critère d'achat très important pour la majorité d'entre nous. Mais que payons-nous vraiment ? Ou plutôt qui ? Bien que tabou, la transparence du prix de vente est importante pour rétablir la confiance.</p><strong>Attention, les données affichées ici sont fictives.</strong>">Que payez-vous ?</h3>
+</div>
 <div class="row">
   <div class="col-md-2 col-md-offset-1">
     <div class="panel panel-default indicators-center" data-position="right" data-intro="<p>Ce prix correspond à ce que nous déboursons lors de notre passage en caisse. Mais que couvre-t-il ? Dans quels postes et avec quelles proportions cette somme d'argent est-elle distribuée ?</p>">
       <div class="panel-heading"><h4>Prix public de vente</h4></div>
       <div class="panel-body">
-      <h3>{{model.prix_conditionnement}} €</h3>
+        <h3>{{model.prix_conditionnement}} €</h3>
         {{pie-chart dataProvider=chartDataProvider colors=chartColors titleField=chartCategories valueField=chartValues}}
       </div>
     </div>
@@ -29,7 +23,6 @@
         </ul>
       </div>
     </div>
-   
   </div>
   <div class="col-md-6" data-position="left" data-intro="<p>Il est aussi intéressant de connaître ce que touche chaque type d'acteur et l'évolution de ces rémunérations au cours du temps.</p>">
       {{line-chart}}

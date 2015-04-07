@@ -10,10 +10,8 @@ Router.map(function() {
   this.route("qui", {path: "/qui"});
   this.route("quoi", {path: "/quoi"});
   this.route("ou", {path: "/ou"});
-  this.route("quand", {path: "/quand"});
   this.route("comment", {path: "/comment"});
   this.route("combien", {path: "/combien"});
-  this.route("pourquoi", {path: "/pourquoi"});
   this.route('sondage');
   this.route('a-propos');
   this.route('projet');
