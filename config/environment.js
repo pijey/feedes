@@ -6,7 +6,7 @@ module.exports = function(environment) {
     minifyJs: false,
     environment: environment,
     baseURL: '/',
-    locationType: 'history',
+    locationType: 'hash',
     contentSecurityPolicy: {
       'default-src': "'none'",
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval' use.typekit.net connect.facebook.net maps.googleapis.com maps.gstatic.com",
@@ -51,7 +51,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.minifyJs = true;
-    ENV.baseURL = '/feedes/';
+    ENV.baseURL = '/';
   }
 
   return ENV;

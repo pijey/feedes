@@ -1,9 +1,9 @@
 <?php
   if($_POST){
-    $to = 'pjvilloud-feedes@yahoo.fr';
+    $to = 'contact@feedes.fr';
     $subject = '[Feedes] Contact !';
     $from_name = $_POST['name'];
-    $from_email = $_POST['vrai_email'];
+    $from_email = $_POST['liame'];
     $message = $_POST['message'];
     $robotest = $_POST['email'];
     if($robotest)

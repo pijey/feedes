@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 	email: null,
-	vrai_email: null,
+	liame: null,
 	name: null,
 	message: null,
 	response: null,
@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
 	actions:{
 		sendMessage: function(){
 			var that = this;
-			Ember.$.post('/feedes_server/sendMail.php', {email: this.get('email'), vrai_email: this.get('vrai_email'),  name: this.get('name'),  message: this.get('message')})
+			Ember.$.post('/sendMail.php', {email: this.get('email'), liame: this.get('liame'),  name: this.get('name'),  message: this.get('message')})
 			.done(function(data) {
 				if(Ember.$(data).is("#error")){
 					that.set("error", true);

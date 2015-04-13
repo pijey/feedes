@@ -1,7 +1,7 @@
 {
   "name": "feedes",
-  "version": "0.0.0",
-  "description": "Small description for feedes goes here",
+  "version": "0.0.1",
+  "description": "Demo site for food transparency project",
   "private": true,
   "directories": {
     "doc": "doc",
