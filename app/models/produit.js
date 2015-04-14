@@ -36,7 +36,7 @@ Produit.reopenClass({
     { 
       id: 1,
       photo_url: 'assets/img/paindemiebiocasinocroppedall.jpg',
-      marque: 'Distrib',
+      marque: 'Cosina',
       denomination: 'Pain de mie',
       description: 'Grâce à ses grandes tranches moelleuses et savoureuses, ce pain de mie fabriqué dans le respect de l\'agriculture biologique vous accompagnera agréablement dans tous vos instants de consommation',
       origine_macro: 'Monde',
