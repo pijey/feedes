@@ -6,7 +6,7 @@ module.exports = function(environment) {
     minifyJs: false,
     environment: environment,
     baseURL: '/',
-    locationType: 'hash',
+    locationType: 'history',
     contentSecurityPolicy: {
       'default-src': "'none'",
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval' use.typekit.net connect.facebook.net maps.googleapis.com maps.gstatic.com",
