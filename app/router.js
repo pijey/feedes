@@ -7,15 +7,17 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route("home", {path: "/"});
-  this.route("qui", {path: "/qui"});
-  this.route("quoi", {path: "/quoi"});
-  this.route("ou", {path: "/ou"});
-  this.route("comment", {path: "/comment"});
-  this.route("combien", {path: "/combien"});
+  this.route("qui");
+  this.route("quoi");
+  this.route("ou");
+  this.route("comment");
+  this.route("combien");
   this.route('sondage');
   this.route('a-propos');
   this.route('projet');
   this.route('contact');
+  this.route('posts');
+  this.route('post', {path: "/post/:md_file_url"});
 });
 
 export default Router;

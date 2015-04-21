@@ -6,6 +6,12 @@
     <title>Feedes</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@FeedesFr" />
+    <meta name="twitter:title" content="Feedes, la transparence alimentaire" />
+    <meta name="twitter:description" content="La plate-forme web permettant aux acteurs du secteur agro-alimentaire d'informer le grand public de manière précise et transparente sur l'origine, la fabrication et la distribution des produits alimentaires qu'ils proposent" />
+    <meta name="twitter:image" content="/assets/img/trust.jpg" />
+    <meta name="twitter:url" content="http://feedes.fr" />
 
     {{content-for 'head'}}
 
@@ -19,6 +25,16 @@
 
     <script src="assets/vendor.js"></script>
     <script src="assets/feedes.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-62081611-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
     
     {{content-for 'body-footer'}}
   </body>

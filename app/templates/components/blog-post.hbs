@@ -1,0 +1,21 @@
+<h3><span class="label label-info">{{header.date}}</span> {{header.title}}</h3>
+
+
+{{markdown-section content=text}}
+
+{{#if readMore}}
+	{{#link-to 'post' mdFile}}Lire la suite...{{/link-to}}
+{{else}}
+	<div class="row">
+  		<div class="col-xs-4 text-center">
+			{{facebook-share fb-layout='box_count'}}
+		</div>
+		<div class="col-xs-4 text-center">
+			{{twitter-share count='vertical'}}
+		</div>
+		<div class="col-xs-4 text-center">
+			{{linkedin-share count="top"}}
+		</div>
+	</div>
+	{{disqus-comments identifier=mdFile}}
+{{/if}}

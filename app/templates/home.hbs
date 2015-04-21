@@ -5,9 +5,21 @@
       <p>
         Tout savoir sur vos produits alimentaires ! Enfin, tout ce que <strong>vous</strong> voulez savoir...
       </p>
-      <p>{{#link-to 'projet' classNames="btn btn-primary btn-lg"}}En savoir plus{{/link-to}}&nbsp;{{#link-to 'sondage' classNames="btn btn-info btn-lg"}}Remplir le sondage{{/link-to}}</p>
-    </div>
-
+      <p>
+        <div class="btn-group" role="group" aria-label="">
+        {{#link-to 'projet' classNames="btn btn-primary"}}En savoir plus{{/link-to}}&nbsp;{{#link-to 'sondage' classNames="btn btn-info"}}Remplir le sondage{{/link-to}}&nbsp;
+          <button class="keep-me-posted btn btn-default" {{action "displaySubscriptionForm"}}>
+            Me tenir informé
+          </button>
+          <div class="subscribe btn-group hidden">
+            {{input on="mouseEnter" action="pauseCarousel" type="text" class="form-control" placeholder="Votre email..." value=email}}
+          </div>
+          <button class="subscribe btn btn-default hidden" {{action "subscribe"}}>
+            OK
+          </button>
+         </div>
+      </p>
+    </div> 
     <div id="carousel-example-generic" class="hidden-xs hidden-sm visible-md visible-lg carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
@@ -25,7 +37,19 @@
             <h4>
               Reprenons le contrôle de notre alimentation!
             </h4>
-            <p>{{#link-to 'projet' classNames="btn btn-primary btn-lg"}}En savoir plus{{/link-to}}&nbsp;{{#link-to 'sondage' classNames="btn btn-info btn-lg"}}Remplir le sondage{{/link-to}}</p>
+            <div class="btn-group" role="group" aria-label="">
+              {{#link-to 'projet' classNames="btn btn-primary"}}En savoir plus{{/link-to}}&nbsp;
+              {{#link-to 'sondage' classNames="btn btn-info"}}Remplir le sondage{{/link-to}}&nbsp;
+              <button class="keep-me-posted btn btn-default" {{action "displaySubscriptionForm"}}>
+                Me tenir informé
+              </button>
+              <div class="subscribe btn-group hidden">
+                {{input on="mouseEnter" action="pauseCarousel" type="text" class="form-control" placeholder="Votre email..." value=email}}
+              </div>
+              <button class="subscribe btn btn-default hidden" {{action "subscribe"}}>
+                OK
+              </button>
+            </div>
           </div>
         </div>
         <div class="item">
@@ -34,7 +58,19 @@
             <h4>
               Rétablissons une relation de confiance <br />avec ceux qui nous nourissent !
             </h4>
-            <p>{{#link-to 'projet' classNames="btn btn-primary btn-lg"}}En savoir plus{{/link-to}}&nbsp;{{#link-to 'sondage' classNames="btn btn-info btn-lg"}}Remplir le sondage{{/link-to}}</p>
+            <div class="btn-group" role="group" aria-label="">
+              {{#link-to 'projet' classNames="btn btn-primary"}}En savoir plus{{/link-to}}&nbsp;
+              {{#link-to 'sondage' classNames="btn btn-info"}}Remplir le sondage{{/link-to}}&nbsp;
+              <button class="keep-me-posted btn btn-default" {{action "displaySubscriptionForm"}}>
+                Me tenir informé
+              </button>
+              <div class="subscribe btn-group hidden">
+                {{input on="mouseEnter" action="pauseCarousel" type="text" class="form-control" placeholder="Votre email..." value=email}}
+              </div>
+              <button class="subscribe btn btn-default hidden" {{action "subscribe"}}>
+                OK
+              </button>
+            </div>
           </div>
         </div>
         <div class="item">
@@ -43,7 +79,19 @@
             <h4>
               Engageons-nous pour une alimentation plus saine et durable !
             </h4>
-            <p>{{#link-to 'projet' classNames="btn btn-primary btn-lg"}}En savoir plus{{/link-to}}&nbsp;{{#link-to 'sondage' classNames="btn btn-info btn-lg"}}Remplir le sondage{{/link-to}}</p>
+            <div class="btn-group" role="group" aria-label="">
+              {{#link-to 'projet' classNames="btn btn-primary"}}En savoir plus{{/link-to}}&nbsp;
+              {{#link-to 'sondage' classNames="btn btn-info"}}Remplir le sondage{{/link-to}}&nbsp;
+              <button class="keep-me-posted btn btn-default" {{action "displaySubscriptionForm"}}>
+                Me tenir informé
+              </button>
+              <div class="subscribe btn-group hidden">
+                {{input on="mouseEnter" action="pauseCarousel" type="text" class="form-control" placeholder="Votre email..." value=email}}
+              </div>
+              <button class="subscribe btn btn-default hidden" {{action "subscribe"}}>
+                OK
+              </button>
+            </div>
           </div>
         </div>
       </div>
