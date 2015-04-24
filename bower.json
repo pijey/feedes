@@ -19,5 +19,10 @@
   },
   "resolutions": {
     "ammap": "~3.13.1"
+  },
+  "devDependencies": {
+    "odometer": "~0.4.7",
+    "amcharts": "~3.13.3",
+    "ammap": "~3.10.0"
   }
 }
