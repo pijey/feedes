@@ -4,7 +4,7 @@
 }
 ---
 
-C'est aujourd'hui que Feedes, la projet de transparence alimentaire est officiellement lancé !
+C'est aujourd'hui que Feedes, le projet de transparence alimentaire est officiellement lancé !
 
 ####Lancement
 
