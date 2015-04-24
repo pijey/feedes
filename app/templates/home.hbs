@@ -8,13 +8,13 @@
       <p>
         <div class="btn-group" role="group" aria-label="">
         {{#link-to 'projet' classNames="btn btn-primary"}}En savoir plus{{/link-to}}&nbsp;{{#link-to 'sondage' classNames="btn btn-info"}}Remplir le sondage{{/link-to}}&nbsp;
-          <button class="keep-me-posted btn btn-default" {{action "displaySubscriptionForm"}}>
-            Me tenir informé
+          <button class="keep-me-posted btn btn-lg btn-default" {{action "displaySubscriptionForm"}}>
+            <strong>Me tenir informé</strong>
           </button>
           <div class="subscribe btn-group hidden">
-            {{input on="mouseEnter" action="pauseCarousel" type="text" class="form-control" placeholder="Votre email..." value=email}}
+            {{input on="mouseEnter" action="pauseCarousel" type="text" class="input-lg form-control" placeholder="Votre email..." value=email}}
           </div>
-          <button class="subscribe btn btn-default hidden" {{action "subscribe"}}>
+          <button class="subscribe btn btn-lg btn-default hidden" {{action "subscribe"}}>
             OK
           </button>
          </div>
@@ -37,16 +37,16 @@
             <h4>
               Reprenons le contrôle de notre alimentation!
             </h4>
-            <div class="btn-group" role="group" aria-label="">
+            <div role="group" aria-label="">
               {{#link-to 'projet' classNames="btn btn-primary"}}En savoir plus{{/link-to}}&nbsp;
-              {{#link-to 'sondage' classNames="btn btn-info"}}Remplir le sondage{{/link-to}}&nbsp;
-              <button class="keep-me-posted btn btn-default" {{action "displaySubscriptionForm"}}>
-                Me tenir informé
+              {{#link-to 'sondage' classNames="btn btn-default"}}Remplir le sondage{{/link-to}}&nbsp;
+              <button class="keep-me-posted btn btn-lg btn-info" {{action "displaySubscriptionForm"}}>
+                <strong>Me tenir informé</strong>
               </button>
               <div class="subscribe btn-group hidden">
-                {{input on="mouseEnter" action="pauseCarousel" type="text" class="form-control" placeholder="Votre email..." value=email}}
+                {{input type="text" class="input-lg form-control" placeholder="Votre email..." value=email}}
               </div>
-              <button class="subscribe btn btn-default hidden" {{action "subscribe"}}>
+              <button class="subscribe btn btn-lg btn-info hidden" {{action "subscribe"}}>
                 OK
               </button>
             </div>
@@ -58,16 +58,16 @@
             <h4>
               Rétablissons une relation de confiance <br />avec ceux qui nous nourissent !
             </h4>
-            <div class="btn-group" role="group" aria-label="">
+            <div role="group" aria-label="">
               {{#link-to 'projet' classNames="btn btn-primary"}}En savoir plus{{/link-to}}&nbsp;
-              {{#link-to 'sondage' classNames="btn btn-info"}}Remplir le sondage{{/link-to}}&nbsp;
-              <button class="keep-me-posted btn btn-default" {{action "displaySubscriptionForm"}}>
-                Me tenir informé
+              {{#link-to 'sondage' classNames="btn btn-default"}}Remplir le sondage{{/link-to}}&nbsp;
+              <button class="keep-me-posted btn btn-lg btn-info" {{action "displaySubscriptionForm"}}>
+                <strong>Me tenir informé</strong>
               </button>
               <div class="subscribe btn-group hidden">
-                {{input on="mouseEnter" action="pauseCarousel" type="text" class="form-control" placeholder="Votre email..." value=email}}
+                {{input type="text" class="input-lg form-control" placeholder="Votre email..." value=email}}
               </div>
-              <button class="subscribe btn btn-default hidden" {{action "subscribe"}}>
+              <button class="subscribe btn btn-lg btn-info hidden" {{action "subscribe"}}>
                 OK
               </button>
             </div>
@@ -79,16 +79,16 @@
             <h4>
               Engageons-nous pour une alimentation plus saine et durable !
             </h4>
-            <div class="btn-group" role="group" aria-label="">
+            <div role="group" aria-label="">
               {{#link-to 'projet' classNames="btn btn-primary"}}En savoir plus{{/link-to}}&nbsp;
-              {{#link-to 'sondage' classNames="btn btn-info"}}Remplir le sondage{{/link-to}}&nbsp;
-              <button class="keep-me-posted btn btn-default" {{action "displaySubscriptionForm"}}>
-                Me tenir informé
+              {{#link-to 'sondage' classNames="btn btn-default"}}Remplir le sondage{{/link-to}}&nbsp;
+              <button class="keep-me-posted btn btn-lg btn-info" {{action "displaySubscriptionForm"}}>
+                <strong>Me tenir informé</strong>
               </button>
               <div class="subscribe btn-group hidden">
-                {{input on="mouseEnter" action="pauseCarousel" type="text" class="form-control" placeholder="Votre email..." value=email}}
+                {{input type="text" class="form-control" placeholder="Votre email..." value=email}}
               </div>
-              <button class="subscribe btn btn-default hidden" {{action "subscribe"}}>
+              <button class="subscribe btn btn-lg btn-info hidden" {{action "subscribe"}}>
                 OK
               </button>
             </div>
@@ -134,6 +134,20 @@
     <h3 class="text-center">la transparence ?</h3>
     <p class="text-justify">
       Accédez à des informations détaillées sur les produits que vous consommez, fournies par des acteurs engagés dans une démarche de transparence.
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="alert alert-success no-bottom-margin text-center">
+    <p>
+      Impliquez-vous en cliquant 
+      <button class="btn btn-xs btn-default" {{action "callToAction"}}>
+        ici
+      </button> 
+      pour recevoir des notifications sur l'avancement du projet. Vous pouvez également participer en remplissant le {{#link-to 'sondage'}}sondage{{/link-to}} ou en utilisant le formulaire de {{#link-to 'contact'}}contact{{/link-to}}.
+    </p>
+    <p>
+      Pas encore convaincu ? Voici ci-dessous quelques exemples de types d'information pour lesquels nous manquons de précisions et ce à quoi <strong>Feedes</strong> pourrait ressembler.
     </p>
   </div>
 </div>
