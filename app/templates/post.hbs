@@ -1,5 +1,6 @@
-<div class="row" id="projetDiv">
+<div class="row blog-post" id="projetDiv">
   <div class="col-md-8 col-md-offset-2">
   	{{blog-post mdFile=model.md_file_url}}
+  	{{disqus-comments identifier=model.md_file_url}}
   </div>
 </div>
