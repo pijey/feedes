@@ -20,5 +20,8 @@ export default Ember.Component.extend({
 			}
 			
 		});
-	}
+	},
+	fullUrl: function(){
+		return "http://feedes.fr/post/" + this.get('mdFile');
+	}.property('mdFile')
 });

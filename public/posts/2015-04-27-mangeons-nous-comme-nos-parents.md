@@ -7,7 +7,7 @@ En 40-45 ans, comme vous vous en doutez, nos habitudes alimentaires ont bien cha
 [MORE]
 Commençons par une petite infographie résumant le contenu de cet article : 
 
-![Mangeons-nous comme nos parents ](/assets/img/mangeons-nous.png "Mangeons-nous comme nos parents ?")
+![Mangeons-nous comme nos parents ](assets/img/mangeons-nous.png "Mangeons-nous comme nos parents ?")
 ###Contenu de l'assiette et quantités
 
 ####Nous mangeons moins...
