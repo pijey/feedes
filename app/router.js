@@ -18,6 +18,7 @@ Router.map(function() {
   this.route('contact');
   this.route('posts');
   this.route('post', {path: "/post/:md_file_url"});
+  this.route('fruits-legumes', {path: "/fruits-legumes/:id"});
 });
 
 export default Router;

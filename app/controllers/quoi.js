@@ -8,7 +8,7 @@ export default Ember.Controller.extend({
 		parPortion: function(){
 			this.set('infosNutritionnelles', this.get('model'));
 			this.set('apportsRecommande', false);
-			Ember.$("#infosNutritionnellesBtnLabel").html("Par "+ this.get('model.unite_portion') +" ("+ this.get('model.poids_portion') + " " + this.get('model.unite_conditionnement') +")");
+			Ember.$("#infosNutritionnellesBtnLabel").html("Par "+ this.get('model.unite_portion') +" ("+ this.get('model.poids_portion') + " " + this.get('model.unite_nutrition') +")");
 		},
 		pour100g: function(){
 			var poidsParPortion = this.get('model.conditionnement')/this.get('model.nombre_portions');
@@ -22,7 +22,7 @@ export default Ember.Controller.extend({
 				fibres: Math.round(this.get('model.fibres') * 10000 / poidsParPortion)/100,
 				proteines: Math.round(this.get('model.proteines') * 10000 / poidsParPortion)/100,
 				sel: Math.round(this.get('model.sel') * 10000 / poidsParPortion)/100,
-				unite_conditionnement: '%'
+				unite_nutrition: '%'
 			});
 			Ember.$("#infosNutritionnellesBtnLabel").html("Pour 100g");
 		},
@@ -38,7 +38,7 @@ export default Ember.Controller.extend({
 				fibres: Math.round(this.get('model.fibres') * 100 * nbPortions)/100,
 				proteines: Math.round(this.get('model.proteines') * 100 * nbPortions)/100,
 				sel: Math.round(this.get('model.sel') * 100 * nbPortions)/100,
-				unite_conditionnement: 'g'
+				unite_nutrition: 'g'
 			});
 			Ember.$("#infosNutritionnellesBtnLabel").html("Pour le conditionnement");
 		},

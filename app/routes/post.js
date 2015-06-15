@@ -1,28 +1,28 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+    titleToken: function(model){
+        return model.get('title');
+    },
 	model: function(queryParams){
 		return this.store.find('post', queryParams.md_file_url);
 	},
-	afterModel: function(model, transition) {
-		transition.then(function(){
-			Ember.$('meta[name="twitter:url"]').attr('content', window.location.href);
-			Ember.$('meta[name="og:url"]').attr('content', window.location.href);
-		});
-        
-        if(model.get('title')){
-        	Ember.$('meta[name="twitter:title"]').attr('content', model.get('title'));
-        	Ember.$('meta[name="og:title"]').attr('content', model.get('title'));
-        }
-        if(model.get('description')){
-        	Ember.$('meta[name="twitter:description"]').attr('content', model.get('description'));
-        	Ember.$('meta[name="og:description"]').attr('content', model.get('description'));
-        }
-        if(model.get('image')){
-        	Ember.$('meta[name="twitter:image"]').attr('content', model.get('image'));
-        	Ember.$('meta[name="og:image"]').attr('content', model.get('image'));
-        }
-        
+    setupController: function (controller, model) {
+        this.get('meta').update({
+            'twitter:site': '@FeedesFr',
+            'twitter:title': model.get('title'),
+            'twitter:description': model.get('description'),
+            // 'twitter:image': 'http://feedes.fr/assets/img/trust.jpg',
+            'twitter:url': window.location.href,
+            
+            'description': model.get('description'),
+
+            'og:title': model.get('title'),
+            'og:description': model.get('description'),
+            // 'og:image': 'http://feedes.fr/assets/img/trust.jpg',
+            'og:url': window.location.href
+        });
+        this._super(controller, model);
+        controller.set('model', model);
     }
-	
 });

@@ -9,6 +9,18 @@ var Post = DS.Model.extend({
 
 Post.reopenClass({
   	FIXTURES: [
+      /*{
+        id: "2015-04-29-se-faire-connaitre",
+        md_file_url: "2015-04-29-se-faire-connaitre",
+        title: "Se faire connaître",
+        description: "Ce n'est pas tout d'avoir un site de présentation du projet, encore faut-il qu'il soit consulté..."
+      },*/
+      {
+        id: "2015-05-05-lecithine-de-soja",
+        md_file_url: "2015-05-05-lecithine-de-soja",
+        title: "Additif : la lécithine de soja",
+        description: "Si vous regardez régulièrement la liste des ingrédients de vos produits alimentaires, vous êtes forcément tombés dessus : la lécithine (principalement de soja) ou son équivalent alphanumérique E322"
+      },
       {
         id: "2015-04-27-mangeons-nous-comme-nos-parents",
         md_file_url: "2015-04-27-mangeons-nous-comme-nos-parents",
