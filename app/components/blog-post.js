@@ -18,8 +18,8 @@ export default Ember.Component.extend({
 			else {
 				that.set('text', parts[1].replace("[MORE]", ""));
 			}
-			
 		});
+
 	},
 	fullUrl: function(){
 		return "http://feedes.fr/post/" + this.get('mdFile');

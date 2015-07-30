@@ -2,7 +2,7 @@
   "name": "feedes",
   "dependencies": {
     "jquery": "^1.11.1",
-    "ember": "1.10.0",
+    "ember": "1.13.0",
     "ember-data": "1.0.0-beta.15",
     "ember-resolver": "~0.1.11",
     "loader.js": "ember-cli/loader.js#1.0.1",
@@ -23,6 +23,7 @@
   "devDependencies": {
     "odometer": "~0.4.7",
     "amcharts": "~3.13.3",
-    "ammap": "~3.10.0"
+    "ammap": "~3.10.0",
+    "jquery-circle-progress": "~1.1.3"
   }
 }

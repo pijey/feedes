@@ -1,0 +1,117 @@
+<div class="row">
+  	<div class="col-lg-10 col-lg-offset-1 col-md-12">
+		<ol class="breadcrumb">
+		  <li><a href="#">{{model.activite}}</a></li>
+		  <li><a href="#">{{model.raisonSociale}}</a></li>
+		  <li class="active">{{model.magasin}}</li>
+		</ol>
+  	</div>
+  	<div class="col-lg-2 col-lg-offset-1 col-md-3">
+    <div class="panel panel-default">
+      	<div class="panel-heading"><h4 class="title-center">Situation géographique</h4></div>
+      	<div class="panel-body">
+	      	<div id="map"></div>
+	      	<h4>Adresse</h4>
+	      	<p><span class="glyphicon glyphicon-map-marker"></span> {{model.adresse}}</p>
+	      	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{model.codePostal}} - {{model.ville}}</p>
+	      	<p><span class="glyphicon glyphicon-phone"></span> {{model.telephone}}</p>
+	      	<p><span class="glyphicon glyphicon-envelope"></span> {{model.email}}</p>
+      	</div>
+    </div>
+    {{#if model.horaires}}
+    <div class="panel panel-default">
+      	<div class="panel-heading"><h4 class="title-center">Horaires</h4></div>
+      	<div class="panel-body">
+      		<ul class="list-group">
+      			{{#each jour in model.horaires}}
+      			<li class="list-group-item">{{jour.jour}}<span class="badge">{{jour.horaire}}</span></li>
+      			{{/each}}
+      		</ul>
+      	</div>
+    </div>
+    {{/if}}
+    {{#if model.agenda}}
+    <div class="panel panel-default">
+      <div class="panel-heading text-center"><h4>Agenda</h4></div>
+      <div class="panel-body">
+	      <ul class="list-group">
+		  {{#each evenement in model.agenda}}
+			  <li class="list-group-item">
+			  	<h4 class="list-group-item-heading">{{evenement.date}}, {{evenement.horaire}}</h4>
+			  	<p class="list-group-item-text">{{evenement.evenement}}</p>
+			  </li>
+		  {{/each}} 
+		  </ul>
+      </div>
+      {{!-- <div class="panel-footer text-center">
+      	<a href="#">En savoir plus</a>
+      </div> --}}
+    </div>
+    {{/if}}
+    
+  </div>  
+  <div class="col-lg-6 col-md-6">
+  	<div class="alert alert-success" role="alert">
+  	    <h3 class="text-center">{{model.raisonSociale}} - {{model.magasin}}</h3>
+  	</div>
+    <div class="text-center overlap">
+    	<img src="{{model.img_url}}">
+    </div>
+    <div class="panel panel-default row-with-margin">
+      <div class="panel-heading text-center"><h4>Description</h4></div>
+      <div class="panel-body">
+	    <blockquote>
+		  <p>{{model.descriptionPerso}}</p>
+		</blockquote>
+      </div>
+      {{!-- <div class="panel-footer text-center">
+      	<a href="#">En savoir plus</a>
+      </div> --}}
+    </div>
+    
+  </div>
+  <div class="col-lg-2 col-md-3">
+  	{{#if model.equipe}}
+  	<div class="panel panel-default">
+      <div class="panel-heading text-center"><h4>Equipe</h4></div>
+      <div class="panel-body">
+	    {{#each membre in model.equipe}}
+	    <div class="equipe-membre">
+    	    <img src="{{membre.photo_url}}" alt="" class="pull-left"> 
+    		<h3>{{membre.prenom}} {{membre.nom}}</h3>
+    		<h4>{{membre.fonction}}</h4>
+    		<div class="clearfix"></div>
+    		<p>{{membre.minibio}}</p>
+    		
+	    </div>
+	    {{/each}}  
+	    
+      </div>
+      <div class="panel-footer text-center">
+      	<a href="#">En savoir plus</a>
+      </div>
+    </div>
+  	{{/if}}
+    {{#if model.social}}
+    <div class="panel panel-default">
+      <div class="panel-heading text-center"><h4>Données sociales</h4></div>
+      <div class="panel-body">
+	      <ul class="list-group">
+	      {{#each donnee in model.social}}
+	        <li class="list-group-item">
+	        	<h4 class="list-group-item-heading">{{donnee.label}}</h4>
+			  	<p class="list-group-item-text">{{donnee.text}}</p>
+	        </li>
+	      {{/each}}
+	      </ul>
+      </div>
+      <div class="panel-footer text-center">
+      	<a href="#">En savoir plus</a>
+      </div>
+    </div> 
+    {{/if}}
+    
+    
+  </div>
+  </div>
+

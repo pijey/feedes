@@ -59,8 +59,15 @@ export default Ember.Controller.extend({
   		dataProvider.lines = [];
   		dataProvider.images = [];
   		var acteurs = this.get("model.acteurs");
+  		var etapes = this.get("model.etapes");
 		var previousActeur = null;
 		acteurs.forEach(function(acteur){
+			if(etapes) {
+				acteur.set("etapes", etapes.filter(function(value) {
+	  				return value.acteur === parseInt(acteur.id);
+				}));
+			}
+			
 			if(previousActeur !== null){
 				var longitudePrev = previousActeur.get("longitude");
 				var latitudePrev = previousActeur.get("latitude");

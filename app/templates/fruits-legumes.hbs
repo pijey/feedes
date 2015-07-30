@@ -10,11 +10,8 @@
   	<div class="col-lg-2 col-lg-offset-1 col-md-3">
     <div class="panel panel-default">
       	<div class="panel-heading"><h4 class="title-center">Produit</h4></div>
-      	<div class="panel-body overlap">
-	      	<img class="img-responsive" {{bind-attr src=model.photo_url}} alt=""> 
-			<div id="circle-transparency" class="circle">
-				<strong></strong>
-			</div>
+      	<div class="panel-body">
+	      	<img class="img-responsive" src="{{model.photo_url}}" alt=""> 
       	</div>
     </div>
     <div class="panel panel-default">
@@ -74,13 +71,13 @@
           </li>
         {{else}}
           <li class="list-group-item"><span class="badge">{{infosNutritionnelles.energie_portion}} kcal</span>Energie</li>
-          <li {{bind-attr class=":list-group-item model.matieres_grasses_indic"}}><span class="badge">{{infosNutritionnelles.matieres_grasses}}{{infosNutritionnelles.unite_nutrition}}<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></span>Matières grasses</li>
-          <li {{bind-attr class=":list-group-item :tabbed model.matieres_grasses_saturees_indic"}}><span class="badge">{{infosNutritionnelles.matieres_grasses_saturees}}{{infosNutritionnelles.unite_nutrition}}<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></span>dont saturées</li>
+          <li class="list-group-item {{model.matieres_grasses_indic}}"><span class="badge">{{infosNutritionnelles.matieres_grasses}}{{infosNutritionnelles.unite_nutrition}}<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></span>Matières grasses</li>
+          <li class="list-group-item tabbed {{model.matieres_grasses_saturees_indic}}"><span class="badge">{{infosNutritionnelles.matieres_grasses_saturees}}{{infosNutritionnelles.unite_nutrition}}<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></span>dont saturées</li>
           <li class="list-group-item"><span class="badge">{{infosNutritionnelles.glucides}}{{infosNutritionnelles.unite_nutrition}}<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></span>Glucides</li>
-          <li {{bind-attr class=":list-group-item :tabbed model.sucres_indic"}}><span class="badge">{{infosNutritionnelles.glucides_dont_sucres}}{{infosNutritionnelles.unite_nutrition}}<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></span>dont sucres</li>
+          <li class="list-group-item tabbed {{model.sucres_indic}}"><span class="badge">{{infosNutritionnelles.glucides_dont_sucres}}{{infosNutritionnelles.unite_nutrition}}<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></span>dont sucres</li>
           <li class="list-group-item"><span class="badge">{{infosNutritionnelles.fibres}}{{infosNutritionnelles.unite_nutrition}}<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></span>Fibres</li>
           <li class="list-group-item"><span class="badge">{{infosNutritionnelles.proteines}}{{infosNutritionnelles.unite_nutrition}}<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></span>Protéines</li>
-          <li {{bind-attr class=":list-group-item model.sel_indic"}}><span class="badge">{{infosNutritionnelles.sel}}{{infosNutritionnelles.unite_nutrition}}<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></span>Sel</li>
+          <li class="list-group-item {{model.sel_indic}}"><span class="badge">{{infosNutritionnelles.sel}}{{infosNutritionnelles.unite_nutrition}}<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></span>Sel</li>
         {{/if}}
         </ul>
         <h4>Note nutritionnelle</h4>
@@ -93,17 +90,25 @@
   	<div class="alert alert-success" role="alert">
   	    <h3 class="text-center">{{model.denomination}} ({{model.variete}}), {{model.distributeur}} - {{model.lieu_vente}}</h3>
   	</div>
-    {{france-chart dataProvider=dataProvider.chartDataProvider}}
+    <div class="overlap">
+      {{france-chart dataProvider=dataProvider.chartDataProvider}}
+      
+      <div id="circle-transparency" class="circle">Transparence<strong></strong></div>
+      <div id="circle-nutrition" class="circle">Nutrition<strong>{{model.note_nutritionnelle}}</strong></div>
+      <div id="circle-origin" class="circle"><img src="{{model.origine_img}}" alt="{{model.origine_macro}}" title="{{model.origine_macro}}">Origine</div>
+      <div id="circle-price-prod" class="circle">Part producteur<strong></strong></div>
+      <div id="circle-intermed" class="circle">Intermediaires<strong>{{model.distance}}</strong></div>
+    </div>
     
     <div class="panel panel-default">
-      	<div class="panel-heading"><h4 class="title-center">Acteurs</h4></div>
+      	<div class="panel-heading"><h4 class="title-center">Acteurs et processus</h4></div>
       	<div class="panel-body">
 		    <div class="timeline-centered">
 		    {{#each dataProvider.distances as |acteur|}}
 		      	<article class="timeline-entry">
 			      	<div class="timeline-entry-inner">
-			      		<time class="timeline-time" datetime="" {{bind-attr data-latitude=acteur.latitude data-longitude=acteur.longitude}}><span>{{acteur.ville}}</span> <span>{{acteur.departementTexte}} ({{acteur.departement}})</span></time>
-			      		<div {{bind-attr class=":timeline-icon acteur.cssCategory"}}>
+			      		<time class="timeline-time" datetime="" data-latitude="{{acteur.latitude}}" data-longitude="{{acteur.longitude}}"><span>{{acteur.ville}}</span> <span>{{acteur.departementTexte}} ({{acteur.departement}})</span></time>
+			      		<div class="timeline-icon {{acteur.cssCategory}}">
 			      			<i class="entypo-feather"></i>
 			      		</div>
 			      		<div class="timeline-distance">
@@ -111,8 +116,33 @@
 			      		</div>
 			      		<div class="timeline-label">
 			      			<h2><a href="#">{{acteur.raisonSociale}}</a> : <span>{{acteur.activite}}</span></h2>
-			      			<p><img {{bind-attr src="acteur.img_url"}} alt="" class="pull-left">{{acteur.descriptionCourte}}</p>
-			      			<p><a href="#">Plus d'informations sur cet acteur</a></p>
+			      			<p><img src="{{acteur.logo_url}}" alt="" class="pull-left">{{acteur.descriptionCourte}}</p>
+			      			<p>{{#link-to 'acteur' acteur.id}}Plus d'informations sur cet acteur{{/link-to}}</p>
+                  <div class="clearfix"></div>
+                  {{#if acteur.etapes}}
+                  <p><a data-toggle="collapse" href="#accordion{{acteur.id}}" aria-expanded="false" aria-controls="accordion">Voir les étapes</a></p>
+                  <div class="panel-group collapse" id="accordion{{acteur.id}}" role="tablist" aria-multiselectable="true">
+                  {{#each etape in acteur.etapes}}
+                    <div class="panel panel-default">
+                      <div class="panel-heading" role="tab" >
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion{{acteur.id}}" href="#{{acteur.id}}_{{etape.label}}" aria-controls="collapseOne">
+                            {{etape.label}}
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="{{acteur.id}}_{{etape.label}}" class="panel-collapse collapse" role="tabpanel" >
+                        <div class="panel-body">
+                          {{#if etape.photo_url}}
+                            <img class="pull-left" src="{{etape.photo_url}}" alt="">
+                          {{/if}}
+                          {{etape.description}}
+                        </div>
+                      </div>
+                    </div>
+                  {{/each}} 
+                  </div> 
+                  {{/if}}
 			      		</div>
 			      	</div>
 		      	</article>
@@ -133,9 +163,9 @@
 	
 	</div>
   </div>
-  <div class="col-lg-2 col-md-3 indicators-center">
+  <div class="col-lg-2 col-md-3">
     <div class="panel panel-default">
-      <div class="panel-heading"><h4>Prix</h4></div>
+      <div class="panel-heading text-center"><h4>Prix</h4></div>
       <div class="panel-body">
 	      <h2>{{model.prix_conditionnement}} € / {{model.unite_conditionnement}} <span class="glyphicon glyphicon-triangle-bottom text-success"></span></h2>
 	      <h4>Producteur : {{model.prix_producteur}} € / {{model.unite_conditionnement}} <span class="glyphicon glyphicon-triangle-top text-success"></span></h4>
@@ -146,11 +176,11 @@
     </div>
     {{#if model.mode_culture}}
     <div class="panel panel-default" data-position="left" data-intro="<p>Un indicateur factuel et clair vous permet de connaître la distance minimale parcourue à travers les différentes étapes de production, ou pour chaque ingrédient.</p>">
-      <div class="panel-heading"><h4>Mode de culture</h4></div>
+      <div class="panel-heading text-center"><h4>Mode de culture</h4></div>
       <div class="panel-body">
-      	<h2>{{model.mode_culture}}</h2>
+      	<h2 class="text-center">{{model.mode_culture}}</h2>
       	<div>
-      		<img {{bind-attr src=model.mode_culture_img}} class="img-center img-responsive img-half">
+      		<img src="{{model.mode_culture_img}}" class="img-center img-responsive img-half">
       	</div>
       	<div class="clearfix"></div>
         {{#if model.intrants}}
@@ -169,9 +199,9 @@
     {{/if}}
     {{#if model.mode_recolte}}
     <div class="panel panel-default">
-      <div class="panel-heading"><h4>Mode de récolte</h4></div>
+      <div class="panel-heading text-center"><h4>Mode de récolte</h4></div>
       <div class="panel-body">
-        <h2>{{model.mode_recolte}} <span class="glyphicon glyphicon-info-sign text-success"></span></h2>
+        <h2 class="text-center">{{model.mode_recolte}} <span class="glyphicon glyphicon-info-sign text-success"></span></h2>
       </div>
       <div class="panel-footer">
         <a href="#" class="text-center">En savoir plus</a>
@@ -180,8 +210,8 @@
     {{/if}}
     {{#if model.circuit}}
     <div class="panel panel-default">
-      <div class="panel-heading"><h4 class="title-center">Circuit</h4></div>
-      <div class="panel-body">
+      <div class="panel-heading text-center"><h4 class="title-center">Circuit</h4></div>
+      <div class="panel-body text-center">
       	<h2>{{model.circuit}} <span class="glyphicon glyphicon-info-sign text-success"></span></h2>
       	<h4>Intermédiaires : {{model.distance}}</h4>
       </div>
@@ -192,13 +222,13 @@
     {{/if}}
     {{#if model.emballage}}
     <div class="panel panel-default">
-      <div class="panel-heading">
+      <div class="panel-heading text-center">
         <h4 class="title-center">Emballage</h4>
       </div>
       <div class="panel-body">
         <ul class="list-group">
         {{#each part in model.emballage}}
-          <li class="list-group-item"><span class="badge"><span {{bind-attr class=":glyphicon part.recyclable:glyphicon-refresh:glyphicon-trash"}} aria-hidden="true"></span></span>{{part.element}} : {{part.matiere}} <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></li>
+          <li class="list-group-item"><span class="badge"><span class="glyphicon {{if part.recyclable 'glyphicon-refresh' 'glyphicon-trash'}}" aria-hidden="true"></span></span>{{part.element}} : {{part.matiere}} <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></li>
         {{/each}}
         </ul>
       </div>

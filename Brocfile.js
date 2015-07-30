@@ -11,6 +11,9 @@ var app = new EmberApp({
   minifyCSS: {
     enabled: true
   },
+  fingerprint: {
+  	extensions : ['js', 'css']
+  }
 });
 
 // Use `app.import` to add additional libraries to the generated
@@ -27,6 +30,7 @@ var app = new EmberApp({
 // along with the exports of each module as its value.
 
 app.import('bower_components/odometer/themes/odometer-theme-car.css');
+app.import('bower_components/odometer/themes/odometer-theme-minimal.css');
 app.import('bower_components/ember/ember-template-compiler.js');
 app.import('bower_components/amcharts/dist/amcharts/amcharts.js');
 app.import('bower_components/amcharts/dist/amcharts/pie.js');
@@ -34,6 +38,9 @@ app.import('bower_components/amcharts/dist/amcharts/serial.js');
 
 app.import('bower_components/ammap/dist/ammap/ammap_amcharts_extension.js');
 app.import('bower_components/ammap/dist/ammap/maps/js/worldLow.js');
+app.import('bower_components/ammap/dist/ammap/maps/js/franceDepartmentsHigh.js');
 app.import('bower_components/ammap/dist/ammap/ammap.css');
 app.import('bower_components/amcharts/dist/amcharts/plugins/responsive/responsive.js');
+
+app.import('bower_components/jquery-circle-progress/dist/circle-progress.js');
 module.exports = app.toTree();

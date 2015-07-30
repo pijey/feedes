@@ -6,8 +6,9 @@
     height: 100%;
 }
 
-.line-chart {
+.line-chart, .price-chart {
     min-height: 550px;
+    font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .world-chart, .france-chart {
@@ -68,6 +69,12 @@ a.simple-link {
 }
 
 /* Image style */
+
+.equipe-membre > img {
+    width: 80px;
+    margin-right: 5px;
+}
+
 .img-center {
     margin: 0 auto;
 }
@@ -129,12 +136,32 @@ a.simple-link {
 
 .circle strong {
     position: absolute;
-    top: 25px;
+    top: 20px;
     left: 0px;
     width: 100%;
     text-align: center;
     line-height: 40px;
     font-size: 20px;
+}
+
+#circle-nutrition {
+    top: 135px;
+}
+
+#circle-origin {
+    top: 260px;
+}
+
+#circle-price-prod {
+    top: 395px;
+}
+
+#circle-intermed {
+    top: 535px;
+}
+
+#circle-origin > img {
+    width: 90px;
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -170,6 +197,46 @@ a.simple-link {
 }
 
 /* Bootstrap additions */
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+}
+
+[data-toggle=tooltip] {
+    cursor: help;
+}
 
 .alert-success > p > a {
     color: #0F7864;
@@ -223,6 +290,7 @@ a.simple-link {
     display: block;
     max-width: 100%;
     height: auto;
+    margin: 0 auto;
 }
 
 .popover, .modal {
@@ -363,21 +431,27 @@ a.simple-link {
             transform:skew(8deg) rotate(3deg);
 }  
 
+.pourcent1 {
+    position: relative;
+    margin: auto;
+    height: 75px;
+    width: 116px !important;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.pourcent2 {
+    position: relative;
+    z-index: 2;
+    width: 116px !important;
+}
+.variation-pourcent {
+    position: absolute;
+    top: 0px;
+    left: 0%;
+    height: 100%;
+    z-index: 1;
+    width: 0%;
+    transition: 1s;
+}
 
 .timeline-centered {
     position: relative;

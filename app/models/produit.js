@@ -8,6 +8,9 @@ var Produit = DS.Model.extend({
   description: DS.attr('string'),
   categorie: DS.attr('string'),
   origine_macro: DS.attr('string'),
+  origine_img: function(){
+      return "assets/img/flags/Flag of " + this.get("origine_macro") + ".png";
+  }.property("origine_macro"),
   echelle: DS.attr('string'),
   origine_semis: DS.attr('string'),
   conditionnement: DS.attr('number'),
@@ -16,6 +19,10 @@ var Produit = DS.Model.extend({
   prix_conditionnement: DS.attr('number'),
   prix_global: DS.attr('number'),
   prix_producteur: DS.attr('number'),
+  part_producteur: function(){
+    return Math.round(this.get('prix_producteur') * 100 / this.get('prix_conditionnement'));
+  }.property('prix_producteur',
+    'prix_conditionnement'),
   unite_globale: DS.attr('string'),
   prix_portion: DS.attr('number'),
   energie_portion: DS.attr('number'),
@@ -32,6 +39,8 @@ var Produit = DS.Model.extend({
       return this.get("transports").split(",");
   }.property('transports'),
   producteur: DS.attr('string'),
+  precision_abattage: DS.attr('string'),
+  precision_elevage: DS.attr('string'),
   mode_recolte: DS.attr('string'),
   mode_culture: DS.attr('string'),
   mode_culture_img: function(){
@@ -40,7 +49,12 @@ var Produit = DS.Model.extend({
   distributeur: DS.attr('string'),
   grossiste: DS.attr('string'),
   lieu_production: DS.attr('string'),
+  lieu_naissance: DS.attr('string'),
+  lieu_elevage: DS.attr('string'),
+  lieu_abattage: DS.attr('string'),
+  lieu_transformation: DS.attr('string'),
   lieu_achat: DS.attr('string'),
+  lieu_emballage: DS.attr('string'),
   lieu_vente: DS.attr('string'),
   date_semis: DS.attr('string'),
   date_recolte: DS.attr('string'),
@@ -49,8 +63,11 @@ var Produit = DS.Model.extend({
   date_limite_conso: DS.attr('string'),
   transparence: DS.attr('number'),
   emballage: DS.attr(),
+  historique_prix: DS.attr(),
+  etapes: DS.attr(),
   kms: DS.attr('string'),
   energie: DS.attr('string'),
+  note_nutritionnelle: DS.attr('string'),
   matieres_grasses_indic: DS.attr('string'),
   matieres_grasses: DS.attr('number'),
   matieres_grasses_saturees_indic: DS.attr('string'),
@@ -69,33 +86,33 @@ var Produit = DS.Model.extend({
 Produit.reopenClass({
   FIXTURES: [
     { 
-      id: 1,
-      photo_url: 'assets/img/paindemiebiocasinocroppedall.jpg',
-      marque: 'Cosina',
-      denomination: 'Pain de mie',
-      description: 'Grâce à ses grandes tranches moelleuses et savoureuses, ce pain de mie fabriqué dans le respect de l\'agriculture biologique vous accompagnera agréablement dans tous vos instants de consommation',
-      origine_macro: 'Monde',
-      conditionnement: 500,
-      unite_conditionnement:'g',
-      unite_nutrition:'g',
-      prix_conditionnement:2.98,
-      prix_global: 5.96,
-      unite_globale: 'kg',
-      prix_portion: 0.21,
-      energie_portion: 105,
-      kms: '20500.5',
-      transparence: 75,
-      nombre_portions: 14,
-      unite_portion: 'tranche',
-      matieres_grasses: 2.1,
-      matieres_grasses_saturees: 0.2,
-      glucides : 18,
-      glucides_dont_sucres: 2 ,
-      fibres : 1.2,
-      proteines: 2.9 ,
-      sel : 0.5 
+      "id": 1,
+      "photo_url": 'assets/img/paindemiebiocasinocroppedall.jpg',
+      "marque": 'Cosina',
+      "denomination": 'Pain de mie',
+      "description": 'Grâce à ses grandes tranches moelleuses et savoureuses, ce pain de mie fabriqué dans le respect de l\'agriculture biologique vous accompagnera agréablement dans tous vos instants de consommation',
+      "origine_macro": 'Monde',
+      "conditionnement": 500,
+      "unite_conditionnement":'g',
+      "unite_nutrition":'g',
+      "prix_conditionnement":2.98,
+      "prix_global": 5.96,
+      "unite_globale": 'kg',
+      "prix_portion": 0.21,
+      "energie_portion": 105,
+      "kms": '20500.5',
+      "transparence": 75,
+      "nombre_portions": 14,
+      "unite_portion": 'tranche',
+      "matieres_grasses": 2.1,
+      "matieres_grasses_saturees": 0.2,
+      "glucides" : 18,
+      "glucides_dont_sucres": 2 ,
+      "fibres" : 1.2,
+      "proteines": 2.9 ,
+      "sel" : 0.5 
     },
-    { 
+    /*{ 
       id: 2,
       photo_url: 'assets/img/batavia.jpg',
       variete: 'Laitue batavia',
@@ -103,10 +120,11 @@ Produit.reopenClass({
       description: 'Elle est craquante et tendre, dotée d\'une grosse pomme vert clair ou vert jaune, gaufrée, avec les bords découpés, au goût légèrement sucré. Certaines variétés sont parfois rougeâtres. Il convient de la choisir avec une base bien blanche, signe de fraîcheur.La batavia se consomme crue, cuite ou braisée. Elle s\'associe agréablement avec les fines herbes, les œufs, le saumon fumé ou l\'oseille.',
       origine_macro: 'France',
       echelle: 'Nationale',
+      note_nutritionnelle: "A",
       unite_conditionnement:'pièce',
       prix_conditionnement:1.05,
       prix_producteur:0.65,
-      distributeur:"La Vie Claire",
+      distributeur:"Le Cri Clair",
       lieu_vente:"Gerland",
       kms: '591',
       transparence: 85,
@@ -117,21 +135,28 @@ Produit.reopenClass({
       mode_culture: "Bio",
       mode_recolte: "Mécanique",
       acteurs: [1, 2, 3],
-      intrants: [1, 2]
+      intrants: [1, 2],
+      etapes: [
+        {acteur:1, label:"Semis", description:"Blabla"},
+        {acteur:1, label:"Arrosage", description:"Blabla"},
+        {acteur:1, label:"Traitement", description:"Blabla"},
+        {acteur:1, label:"Récolte", description:"Blabla"},
+        {acteur:1, label:"Conditionnement", description:"Blabla"},
+      ]
     },
     { 
       id: 3,
-      photo_url: 'assets/img/oeufs.jpg',
-      marque: 'La Vie Claire',
+      photo_url: 'assets/img/oeufscriclair.jpg',
+      marque: 'Le Cri Clair',
       variete: 'Calibre Gros, compris entre 63 g et 73 g',
       denomination: '6 œufs bio extra-frais',
-      description: 'Les œufs La Vie Claire sont issus de poules élevées en plein air dans la Drôme et en Ardèche. Ces dernières sont nourries à base de céréales bio.',
+      description: 'Les œufs Le Cri Clair sont issus de poules élevées en plein air dans la Drôme et en Ardèche. Ces dernières sont nourries à base de céréales bio.',
       origine_macro: 'France',
       echelle: 'Régionale (Rhône-Alpes)',
       unite_conditionnement:'6 œufs',
       prix_conditionnement:2.75,
       prix_producteur:1.5,
-      distributeur:"La Vie Claire",
+      distributeur:"Le Cri Clair",
       lieu_vente:"Gerland",
       emballage:[
         {
@@ -149,6 +174,7 @@ Produit.reopenClass({
       acteurs: [4,5,3],
       prix_portion: 0.46,
       energie_portion: 96.56,
+      note_nutritionnelle: "B",
       nombre_portions: 6,
       unite_portion: "œuf",
       unite_nutrition: "g",
@@ -163,6 +189,133 @@ Produit.reopenClass({
       fibres : 1.2,
       proteines: 8.57 ,
       sel : 0.20,
+      sel_indic : "list-group-item-warning"
+    },*/
+    { 
+      id: 4,
+      photo_url: 'assets/img/steakchapal.jpeg',
+      marque: 'Cosina',
+      variete: 'Viande bovine à griller',
+      denomination: '1 Steak Filet Chapal',
+      description: 'Tranché dans le filet de bœuf, le morceau le plus noble, le steak filet garanti 100% d’origine française est une pièce appréciée des connaisseurs, particulièrement exigeants sur la tendreté de la viande. Il sera d’autant plus tendre que sa cuisson sera brève.',
+      origine_macro: 'France',
+      echelle: 'Nationale',
+      prix_global: 42.48,
+      unite_globale: 'kg',
+      unite_conditionnement:'110g',
+      prix_conditionnement:4.67,
+      prix_producteur:1.64,
+      distributeur:"Cosina",
+      lieu_vente:"Lyon 7",
+      lieu_naissance:"Peyrelevade (Corrèze)",
+      lieu_elevage:"Peyrelevade (Corrèze)",
+      lieu_abattage:"Egletons (Corrèze)",
+      lieu_transformation:"Cholet (Corrèze)",
+      lieu_emballage:"Cholet (Corrèze)",
+      emballage:[
+        {
+          element: "Sachet", matiere: "Plastique aluminisé", "recyclable": false
+        },
+         {
+          element: "Barquette", matiere: "PET", "recyclable": false
+        },
+        {
+          element: "Film plastique", matiere: "PVC", "recyclable": false
+        }
+      ],
+      etapes: [
+        {acteur:6, label:"Naissance", description:"Blabla"},
+        {acteur:6, label:"Engraissement", description:"Blabla"},
+        {acteur:7, label: "Réception des animaux",description:"L'abattoir se fournit en animaux sur les marchés à bestiaux ou chez les éleveurs dans leurs fermes, ou bien effectue des prestations pour le compte de clients. Les paysans amènent également les bovins qu'ils consomment, qu'ils cuisinent dans leurs restaurants personnels ou qu'ils vendent directement sur les marchés et à la ferme. Les animaux sont donc transportés à l'abattoir et arrivent dans les bouveries (lieux où ils sont rassemblés). La livraison est alors contrôlée : les transporteurs doivent remettre le DAB (Document d'accompagnement du bovin) de chaque animal, les éventuels certificats de label ou de non vêlage ainsi que le bon de livraison. Chaque animal est ensuite identifié grâce aux marques auriculaires (les médailles) apposées à la pince par percements des oreilles peu de temps après la naissance par l'agriculteur. Elles consistent en un n° à dix chiffres, l'IPG, unique pour chaque bovin. La concordance entre les informations et celles portées sur le DAB doit être parfaite. En cas de non concordance l'animal est mis en consigne jusqu'à obtention des informations manquantes. Dans les cas les plus graves, l'animal peut être euthanasié et saisi par le service vétérinaire. Les animaux sont mis dans une stabulation et les informations sont saisies sur informatique (label, lieu de naissance, éventuellement lieu d'engraissage...). Depuis la mise en vigueur du paquet hygiène le 1er janvier 2006, les éleveurs ont l'obligation (quand ce n'est pas pour de la vente directe) de fournir à l'abattoir les animaux destinés à être commercialisés dans un état propre. Toujours d'un point de vue législatif, les apporteurs ont obligation de laver et de désinfecter leurs camions à l'abattoir."},
+        {acteur:7, label: "Tuerie", description:"Les animaux sont dirigés vers le piège de tuerie. Personnel et animaux n'empruntent jamais les mêmes couloirs pour des raisons de sécurité. Le piège doit permettre l'immobilisation de l'animal. Le bovin est alors assommé par un coup de pistolet d'abattage tiré dans le front, ce qui a pour effet de l'insensibiliser entre le moment de réalisation de la saignée et la fin du processus de destruction du système nerveux conduisant à la mort. Dans ce but, la saignée consiste en une section des artères carotides, ces dernières ne sont ainsi plus en mesure d'alimenter en oxygène le système nerveux central de l'animal ce qui entraine sa mort. Ce processus est accompagné par des spasmes ainsi qu'une tétanie des muscles à l'ouverture du piège."},
+        {acteur:7, label: "Saignée", description:"L'animal libéré est suspendu puis saigné au niveau des artères carotides afin d'évacuer le plus vite possible son sang, grâce aux battements de son cœur. Le sang doit être récupéré dans une cuve spéciale et ne doit pas aller à l'égout. Le sang des volailles est récupéré pour la sanquette. Le sang des bovins peut être valorisé pour l'alimentaire, à condition que celui des animaux malades ou qui font l'objet d'une saisie ne s'y trouve pas."},
+        {acteur:7, label: "Coupe des pattes antérieures", description:"Après la saignée, lorsque l'animal n'a plus de gestes nerveux, il est possible de couper les pattes antérieures, afin de faciliter le passage du pique qui a pour but de retirer le cœur et le foie avec les poumons et la vessie"},
+        {acteur:7, label: "Traçage du cuir", description:"Un opérateur trace avec son couteau la peau pour pouvoir la manipuler, il retire la peau en prenant garde à ne pas salir le muscle avec la peau sale. Il coupe également la patte au niveau du genou. Il ligature le rectum afin que le contenu du système digestif de l'animal ne ressorte pas par cette voie. Un second opérateur, placé face à lui, procède de même avec la seconde patte et retire la mamelle si elle est présente. Une fois les deux pattes dépouillées, les opérateurs suspendent la carcasse sur deux crochets."},
+        {acteur:7, label: "Arrachage du cuir", description:"L'étape dite de l'arrachage du cuir consiste à enlever la peau de l'animal. Cette opération fait l'objet d'étapes dont le détail dépend de l'abattoir. Un opérateur dépouille légèrement le collier et va remonter jusqu'au sternum afin de pouvoir ligaturer l'herbière pour éviter la sortie de contenus gastriques par cette voie. Le ventre de la carcasse est dépouillé pour faciliter l'arrachage du cuir. Grâce à un arracheur, la peau est retirée par traction. La carcasse est parfois mise sous tension électrique pour tétaniser les muscles. Deux opérateurs effectuent cette opération pour éviter des déchirures musculaires à certains endroits fragiles (œillets). La peau est ensuite récupérée pour devenir du cuir ou de la gélatine alimentaire."},
+        {acteur:7, label: "Éviscération", description:"Cette étape doit commencer au plus 45 minutes après la tuerie. Au-delà de ce délai les intestins deviennent poreux sous l'action d'enzymes et des micro-organismes qu'ils contiennent peuvent en sortir et atteindre les muscles, donc contaminer la carcasse."},
+        {acteur:7, label: "Abats Blancs", description:"Les abats blancs (tripes, intestins, panses…) sont alors retirés. Les intestins de bovin sont détruits car ils sont considérés comme des matières à risques spécifiés. Les panses peuvent être valorisées après deux échaudages, le premier les lave du contenu digestif et le second les cuit pour la consommation humaine ou animale."},
+        {acteur:7, label: "Abats rouges", description:"Ce sont les poumons, le cœur, les reins, la langue, la rate et le foie. Ils sont soumis à une inspection vétérinaire puis vendus pour la consommation humaine ou animale ou bien saisis pour destruction en cas de risque sanitaire (présence de douve dans le foie, animal malade...)"},
+        {acteur:7, label: "Démédulation", description:"Tout d'abord pour des raisons liées à la présentation commerciale des viandes, et surtout depuis la crise de l'encéphalopathie spongiforme bovine, les carcasses sont démédulées. La moelle épinière est aspirée puis détruite par incinération."},
+        {acteur:7, label: "Fente en demi", description:"La carcasse est fendue en deux le long de la colonne vertébrale grâce à une scie pourvue d'une lame ruban sans fin."},
+        {acteur:7, label: "Émoussage", description:"Cette étape consiste à retirer la graisse (suif) de l'animal. Elle est réglementée pour éviter des abus car certaines pièces ne doivent pas être dégraissées."},
+        {acteur:7, label: "Inspection vétérinaire", description:"Un agent de la direction départementale des services vétérinaires inspecte la carcasse pour détecter tout problème sanitaire. S'il juge qu'une carcasse présente des lésions, il consigne la carcasse. Un vétérinaire viendra le lendemain inspecter la carcasse et s'il juge que tout ou partie de la carcasse peut poser un problème de santé publique il a le droit de la saisir totalement ou partiellement. Une carcasse est apte à la consommation dès lors qu'elle est estampillée."},
+        {acteur:7, label: "Pesée fiscale", description:"La carcasse est pesée, moins d'une heure après la saignée. On soustrait 2 % à cette masse \"chaude\" pour calculer ce qui sera payé à l'éleveur. La carcasse est ensuite mise en réfrigérateur de ressuage pour faire descendre progressivement, en 10 heures, la température de la carcasse jusqu'à 10 °C, puis en réfrigérateur de stockage pour quelle atteigne 4 °C après 24 heures."},
+        {acteur:8, label: "Désossage", description:"Les désosseurs, vêtus de cotte de mailles, de tablier, de gants de protection et équipés d'une batterie de couteaux sélectionnent les morceaux. "},
+        {acteur:8, label: "Conditionnement", description:"Le steak obtenu est ensuite emballé et étiqueté."},
+      ],
+      historique_prix: [
+        {
+          "year": "2009",
+          "eleveurs": 1.78,
+          "transformateurs": 1.10,
+          "distributeurs": 1.04,
+          "autres_intermediaires": 0.1
+        }, {
+          "year": "2010",
+          "eleveurs": 1.75,
+          "transformateurs": 1.15,
+          "distributeurs": 1.08,
+          "autres_intermediaires": 0.1
+        }, {
+          "year": "2011",
+          "eleveurs": 1.79,
+          "transformateurs": 1.21,
+          "distributeurs": 1.13,
+          "autres_intermediaires": 0.1
+        }, {
+          "year": "2012",
+          "eleveurs": 2.10,
+          "transformateurs": 1.15,
+          "distributeurs": 1.06,
+          "autres_intermediaires": 0.1
+        }, {
+          "year": "2013",
+          "eleveurs": 1.70,
+          "transformateurs": 1.33,
+          "distributeurs": 1.27,
+          "autres_intermediaires": 0.1
+        }, {
+          "year": "2014",
+          "eleveurs": 1.60,
+          "transformateurs": 1.37,
+          "distributeurs": 1.35,
+          "autres_intermediaires": 0.1
+        }, {
+          "year": "2015",
+          "eleveurs": 1.64,
+          "transformateurs": 1.40,
+          "distributeurs": 1.33,
+          "autres_intermediaires": 0.3
+        }
+      ],
+      kms: '860',
+      transparence: 95,
+      categorie: "Viande",
+      distance: 4,
+      transports: "Camion",
+      circuit: "Long",
+      mode_culture: "Traditionnel avec stabulation entravées",
+      precision_elevage: "Les animaux sont confinés sur des emplacements définis appelés stalles. Ils ont la liberté de se lever et de se coucher mais ne peuvent se déplacer. Ce système permet un nettoyage, la traite et l'alimentation manuelle ou automatisée.", 
+      mode_recolte: "Traditionnel avec étourdissement mécanique",
+      precision_abattage: "Lors de leur abattage, les animaux sont insensibilisé à l’aide d'une qui tige pénètre dans le crâne et détruit une partie du cerveau ce qui rend l’animal inconscient.",
+      acteurs: [6,7,8,9,10],
+      prix_portion: 4.67,
+      energie_portion: 353,
+      note_nutritionnelle: "C",
+      nombre_portions: 1,
+      unite_portion: "steak",
+      unite_nutrition: "g",
+      conditionnement: 110,
+      matieres_grasses_indic: "list-group-item-danger",
+      matieres_grasses: 21,
+      matieres_grasses_saturees: 8.2,
+      matieres_grasses_saturees_indic: "list-group-item-warning",
+      glucides : 0,
+      sucres_indic : "list-group-item-success",
+      glucides_dont_sucres: 0 ,
+      fibres : 0,
+      proteines: 38.21 ,
+      sel : 0.522,
       sel_indic : "list-group-item-warning"
     }
   ]

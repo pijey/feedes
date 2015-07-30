@@ -1,0 +1,260 @@
+<div class="row">
+  	<div class="col-lg-10 col-lg-offset-1 col-md-12">
+		<ol class="breadcrumb">
+		  <li><a href="#">{{model.distributeur}}</a></li>
+		  <li><a href="#">{{model.lieu_vente}}</a></li>
+		  <li><a href="#">{{model.categorie}}</a></li>
+		  <li class="active">{{model.denomination}}</li>
+		</ol>
+  	</div>
+  	<div class="col-lg-6 col-md-6 col-lg-push-3 col-md-push-3">
+  	<div class="alert alert-success" role="alert">
+  	    <h3 class="text-center">{{model.denomination}} ({{model.variete}}), {{model.distributeur}} - {{model.lieu_vente}}</h3>
+  	</div>
+    <div class="overlap">
+      {{france-chart dataProvider=dataProvider.chartDataProvider}}
+      
+      <div id="circle-transparency" class="circle">Transparence<strong></strong></div>
+      <div id="circle-nutrition" class="circle">Nutrition<strong>{{model.note_nutritionnelle}}</strong></div>
+      <div id="circle-origin" class="circle"><img src="{{model.origine_img}}" alt="{{model.origine_macro}}" title="{{model.origine_macro}}">Origine</div>
+      <div id="circle-price-prod" class="circle">Part producteur<strong></strong></div>
+      <div id="circle-intermed" class="circle">Intermediaires<strong>{{model.distance}}</strong></div>
+    </div>
+    
+    <div class="panel panel-default">
+      	<div class="panel-heading"><h4 class="title-center">Acteurs et processus</h4></div>
+      	<div class="panel-body">
+		    <div class="timeline-centered">
+		    {{#each dataProvider.distances as |acteur|}}
+		      	<article class="timeline-entry">
+			      	<div class="timeline-entry-inner">
+			      		<time class="timeline-time" datetime="" data-latitude="{{acteur.latitude}}" data-longitude="{{acteur.longitude}}"><span>{{acteur.ville}}</span> <span>{{acteur.departementTexte}} ({{acteur.departement}})</span></time>
+			      		<div class="timeline-icon {{acteur.cssCategory}}">
+			      			<i class="entypo-feather"></i>
+			      		</div>
+			      		<div class="timeline-distance">
+			      			<h4><span class="label label-warning">{{acteur.distance}} km</span></h4>
+			      		</div>
+			      		<div class="timeline-label">
+			      			<h2><a href="#">{{acteur.raisonSociale}}</a> : <span>{{acteur.activite}}</span></h2>
+			      			<p><img src="{{acteur.logo_url}}" alt="" class="pull-left">{{acteur.descriptionCourte}}</p>
+			      			<p>{{#link-to 'acteur' acteur.id}}Plus d'informations sur cet acteur{{/link-to}}</p>
+                  <div class="clearfix"></div>
+                  {{#if acteur.etapes}}
+                  <p><a data-toggle="collapse" href="#accordion{{acteur.id}}" aria-expanded="false" aria-controls="accordion">Voir les étapes</a></p>
+                  <div class="panel-group collapse" id="accordion{{acteur.id}}" role="tablist" aria-multiselectable="true">
+                  {{#each etape in acteur.etapes}}
+                    <div class="panel panel-default">
+                      <div class="panel-heading" role="tab" >
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion{{acteur.id}}" href="#{{acteur.id}}_{{replace-space-with-underscore etape.label}}" aria-controls="collapseOne">
+                            {{etape.label}}
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="{{acteur.id}}_{{replace-space-with-underscore etape.label}}" class="panel-collapse collapse" role="tabpanel" >
+                        <div class="panel-body">
+                          {{#if etape.photo_url}}
+                            <img class="pull-left" src="{{etape.photo_url}}" alt="">
+                          {{/if}}
+                          {{etape.description}}
+                        </div>
+                      </div>
+                    </div>
+                  {{/each}} 
+                  </div> 
+                  {{/if}}
+			      		</div>
+			      	</div>
+		      	</article>
+		    {{/each}}
+				
+				<article class="timeline-entry begin">
+					<div class="timeline-entry-inner">
+						<div class="timeline-icon" style="-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);">
+							<i class="entypo-flight"></i>
+						</div>
+						<div class="timeline-label">
+							<h2>Vous !</h2>
+						</div>
+					</div>
+				</article>
+			</div>
+		</div>
+	
+	</div>
+  </div>
+  <div class="col-lg-2 col-lg-offset-1 col-md-3 col-lg-pull-6 col-md-pull-6">
+    <div class="panel panel-default">
+      	<div class="panel-heading"><h4 class="title-center">Produit</h4></div>
+      	<div class="panel-body">
+	      	<img class="img-responsive" src="{{model.photo_url}}" alt=""> 
+      	</div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4 class="title-center">Origine</h4></div>
+      <div class="panel-body">
+        <h2 class="text-center">{{model.origine_macro}}</h2>
+        <h4 class="text-center">Echelle : {{model.echelle}}</h4>
+        <ul class="list-group">
+        	<li class="list-group-item">Naissance <span class="label label-primary">{{model.lieu_naissance}}</span></li>
+        	<li class="list-group-item">Elevage <span class="label label-primary">{{model.lieu_elevage}}</span></li>
+        	<li class="list-group-item">Abattage <span class="label label-primary">{{model.lieu_abattage}}</span></li>
+        	<li class="list-group-item">Transformation <span class="label label-primary">{{model.lieu_transformation}}</span></li>
+        	<li class="list-group-item">Emballage <span class="label label-primary">{{model.lieu_emballage}}</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4 class="title-center">Distances</h4></div>
+      <div class="panel-body text-center">
+      	<div>
+      		{{ember-odometer value=model.kms format="(ddd)" theme="minimal"}}&nbsp;&nbsp;&nbsp;kms
+      	</div>
+      	<div class="clearfix"></div>
+      	<h4>Modes de transports utilisés</h4>
+      	<ul class="list-group">
+      	{{#each transport in model.modes_transports}}
+      	  	<li class="list-group-item">{{transport}}</li>
+      	{{/each}}
+      		
+      	</ul>
+      </div>
+      {{!-- <div class="panel-footer text-center">
+      	<a href="#">En savoir plus</a>
+      </div> --}}
+    </div>
+    {{#if model.energie_portion}}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="title-center">Infos nutritionnelles</h4>
+      </div>
+      <div class="panel-body">
+        <div class="input-group">
+          <div class="input-group-btn text-center">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span id="infosNutritionnellesBtnLabel">Par {{model.unite_portion}} ({{model.poids_portion}}{{model.unite_nutrition}})</span> <span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#" {{action "parPortion"}}>Par {{model.unite_portion}} ({{model.poids_portion}}{{model.unite_nutrition}})</a></li>
+              <li><a href="#" {{action "pour100g"}}>Pour 100 g</a></li>
+              <li><a href="#" {{action "pourConditionnement"}}>Pour le conditionnement</a></li>
+              <li class="divider"></li>
+              <li><a href="#" {{action "pourApportsNutritionnels"}}>Apports recommandés</a></li>
+            </ul>
+          </div>
+        </div>
+        <ul class="list-group">
+        {{#if apportsRecommande}}
+          <li class="list-group-item text-justify">
+            Les apports recommandés varient (entre autres facteurs) en fonction du sexe, de l'âge, du poids, de la taille et du mode de vie.
+          </li>
+          <li class="list-group-item text-justify">
+            Les valeurs inscrites sur les étiquettes prennent comme référence 2000 kcal, ce qui correspond à la moyenne entre les valeurs moyennes recommandées pour les hommes, 2200 kcal et pour les femmes, 1800 kcal.
+          </li>
+          <li class="list-group-item text-justify">
+              En complétant un "profil alimentaire", nous pourrions afficher les valeurs recommandées pour nous et les membres de notre famille et ainsi gérer plus finement nos apports nutritionnels.
+          </li>
+        {{else}}
+          <li class="list-group-item"><span class="badge">{{infosNutritionnelles.energie_portion}} kcal</span>Energie</li>
+          <li class="list-group-item {{model.matieres_grasses_indic}}"><span class="badge">{{infosNutritionnelles.matieres_grasses}}{{infosNutritionnelles.unite_nutrition}}</span>Matières grasses</li>
+          <li class="list-group-item tabbed {{model.matieres_grasses_saturees_indic}}"><span class="badge">{{infosNutritionnelles.matieres_grasses_saturees}}{{infosNutritionnelles.unite_nutrition}}</span>dont saturées</li>
+          <li class="list-group-item"><span class="badge">{{infosNutritionnelles.glucides}}{{infosNutritionnelles.unite_nutrition}}</span>Glucides</li>
+          <li class="list-group-item tabbed {{model.sucres_indic}}"><span class="badge">{{infosNutritionnelles.glucides_dont_sucres}}{{infosNutritionnelles.unite_nutrition}}</span>dont sucres</li>
+          <li class="list-group-item"><span class="badge">{{infosNutritionnelles.fibres}}{{infosNutritionnelles.unite_nutrition}}</span>Fibres</li>
+          <li class="list-group-item"><span class="badge">{{infosNutritionnelles.proteines}}{{infosNutritionnelles.unite_nutrition}}</span>Protéines</li>
+          <li class="list-group-item {{model.sel_indic}}"><span class="badge">{{infosNutritionnelles.sel}}{{infosNutritionnelles.unite_nutrition}}</span>Sel</li>
+        {{/if}}
+        </ul>
+        <h4 class="text-center">Note nutritionnelle</h4>
+        <div class="img-product"><img class="img-center img-responsive" src="http://fr.openfoodfacts.org/images/misc/{{lower-case model.note_nutritionnelle}}.338x72.png"/></div>
+      </div>
+    </div>
+    {{/if}}
+  </div>  
+  <div class="col-lg-2 col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-heading text-center"><h4>Prix</h4></div>
+      <div class="panel-body text-center">
+	      <h3>{{model.prix_conditionnement}} € / {{model.unite_conditionnement}} <span class="glyphicon glyphicon-triangle-top text-danger" data-toggle="tooltip" data-placement="top" title="Prix en hausse"></span></h3>
+	      <h3>soit {{model.prix_global}} € / {{model.unite_globale}}</h3>
+	      <h4>Producteur : {{model.prix_producteur}} € / {{model.unite_conditionnement}} <span class="glyphicon glyphicon-triangle-top text-success" data-toggle="tooltip" data-placement="top" title="Part du producteur en hausse"></span></h4>
+			<div class="pourcent1" data-toggle="tooltip" data-placement="top" title="Part du producteur : {{model.part_producteur}}%">
+				<img src="assets/img/veau-minus.png" class="pourcent2" >
+				<div class="variation-pourcent list-group-item-warning"></div>
+			</div>
+      </div>
+      <div class="panel-footer text-center">
+      	<a href="#" data-toggle='modal' data-target='#prixModal'>En savoir plus</a>
+      </div>
+    </div>
+    <div id="prixModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	    <div class="modal-dialog modal-lg">
+	      <div class="modal-content">
+	          <div class="modal-body">
+	          	<h3 class="text-center">Répartition du prix de vente</h3>
+      			{{price-chart refresh=refreshChart dataProvider=priceChartData}}
+	          </div>
+	      </div>
+	    </div>
+	  </div>
+    {{#if model.mode_culture}}
+    <div class="panel panel-default" data-position="left" data-intro="<p>Un indicateur factuel et clair vous permet de connaître la distance minimale parcourue à travers les différentes étapes de production, ou pour chaque ingrédient.</p>">
+      <div class="panel-heading text-center"><h4>Mode d'élevage</h4></div>
+      <div class="panel-body">
+      	<h3 class="text-center">{{model.mode_culture}} <span class="glyphicon glyphicon-info-sign text-success" data-toggle="tooltip" data-placement="left" title="{{model.precision_elevage}}"></span></h3>
+        {{#if model.intrants}}
+        <h4>Intrants utilisés</h4>
+        <ul class="list-group">
+        {{#each intrant in model.intrants}}
+          <li class="list-group-item"><a href="#">{{intrant.nom}}</a> <span class="badge"><span class="glyphicon glyphicon-info-sign"></span></span></li>
+        {{/each}}
+        </ul>
+        {{/if}}
+      </div>
+      {{!-- <div class="panel-footer text-center">
+      	<a href="#">En savoir plus</a>
+      </div> --}}
+    </div>
+    {{/if}}
+    {{#if model.mode_recolte}}
+    <div class="panel panel-default">
+      <div class="panel-heading text-center"><h4>Mode d'abattage</h4></div>
+      <div class="panel-body">
+        <h3 class="text-center">{{model.mode_recolte}} <span class="glyphicon glyphicon-info-sign text-success" data-toggle="tooltip" data-placement="left" title="{{model.precision_abattage}}"></span></h3>
+      </div>
+      {{!-- <div class="panel-footer text-center">
+        <a href="#">En savoir plus</a>
+      </div> --}}
+    </div>
+    {{/if}}
+    {{#if model.circuit}}
+    <div class="panel panel-default">
+      <div class="panel-heading text-center"><h4 class="title-center">Circuit</h4></div>
+      <div class="panel-body text-center">
+      	<h3>{{model.circuit}} <span class="glyphicon glyphicon-info-sign text-success" data-toggle="tooltip" data-placement="left" title="{{model.distance}} intermédiaires vous séparent de l'éleveur"></span></h3>
+      </div>
+      {{!-- <div class="panel-footer text-center">
+      	<a href="#">En savoir plus</a>
+      </div> --}}
+    </div>
+    {{/if}}
+    {{#if model.emballage}}
+    <div class="panel panel-default">
+      <div class="panel-heading text-center">
+        <h4 class="title-center">Emballage</h4>
+      </div>
+      <div class="panel-body">
+        <ul class="list-group">
+        {{#each part in model.emballage}}
+          <li class="list-group-item"><span class="badge"><span class="glyphicon {{if part.recyclable 'glyphicon-refresh' 'glyphicon-trash'}}" aria-hidden="true" data-toggle="tooltip" data-placement="left" title="{{if part.recyclable 'A recycler' 'A jeter'}}"></span></span>{{part.element}} : {{part.matiere}}</li>
+        {{/each}}
+        </ul>
+      </div>
+      {{!-- <div class="panel-footer text-center">
+        <a href="#">En savoir plus</a>
+      </div> --}}
+    </div>
+      
+    {{/if}}
+  </div>
+  </div>
+

@@ -16,6 +16,12 @@ Post.reopenClass({
         description: "Ce n'est pas tout d'avoir un site de présentation du projet, encore faut-il qu'il soit consulté..."
       },*/
       {
+        id: "2015-07-30-transparence-prix",
+        md_file_url: "2015-07-30-transparence-prix",
+        title: "Transparence du prix et répartition des coût",
+        description: "Depuis quelques semaines, les éleveurs manifestent à coup de barrages filtrants et autres opérations coup-de-poing. Leurs revendications ? Pouvoir vivre de leur métier en vendant leur production à un prix plus important pour les sortir de la crise."
+      },
+      {
         id: "2015-05-05-lecithine-de-soja",
         md_file_url: "2015-05-05-lecithine-de-soja",
         title: "Additif : la lécithine de soja",
@@ -32,8 +38,7 @@ Post.reopenClass({
     		md_file_url: "2015-04-21-lancement-du-site",
     		title: "Lancement du site !",
     		description: "Soyons clairs, c'est bien le projet qui est lancé aujourd'hui, et non la plateforme fonctionnelle avec des produits déjà référencés..."
-    	}
-      
+    	},
   	]
 });
 
