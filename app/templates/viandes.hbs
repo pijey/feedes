@@ -43,7 +43,7 @@
                   {{#if acteur.etapes}}
                   <p><a data-toggle="collapse" href="#accordion{{acteur.id}}" aria-expanded="false" aria-controls="accordion">Voir les étapes</a></p>
                   <div class="panel-group collapse" id="accordion{{acteur.id}}" role="tablist" aria-multiselectable="true">
-                  {{#each etape in acteur.etapes}}
+                  {{#each acteur.etapes as |etape|}}
                     <div class="panel panel-default">
                       <div class="panel-heading" role="tab" >
                         <h4 class="panel-title">
@@ -114,7 +114,7 @@
       	<div class="clearfix"></div>
       	<h4>Modes de transports utilisés</h4>
       	<ul class="list-group">
-      	{{#each transport in model.modes_transports}}
+      	{{#each model.modes_transports as |transport|}}
       	  	<li class="list-group-item">{{transport}}</li>
       	{{/each}}
       		
@@ -204,7 +204,7 @@
         {{#if model.intrants}}
         <h4>Intrants utilisés</h4>
         <ul class="list-group">
-        {{#each intrant in model.intrants}}
+        {{#each model.intrants as |intrant|}}
           <li class="list-group-item"><a href="#">{{intrant.nom}}</a> <span class="badge"><span class="glyphicon glyphicon-info-sign"></span></span></li>
         {{/each}}
         </ul>
@@ -244,7 +244,7 @@
       </div>
       <div class="panel-body">
         <ul class="list-group">
-        {{#each part in model.emballage}}
+        {{#each model.emballage as |part|}}
           <li class="list-group-item"><span class="badge"><span class="glyphicon {{if part.recyclable 'glyphicon-refresh' 'glyphicon-trash'}}" aria-hidden="true" data-toggle="tooltip" data-placement="left" title="{{if part.recyclable 'A recycler' 'A jeter'}}"></span></span>{{part.element}} : {{part.matiere}}</li>
         {{/each}}
         </ul>

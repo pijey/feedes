@@ -4,7 +4,11 @@
 #     RequestHeader set X-Prerender-Token "9IwrSjeGTabOzJI8oHrI"
 # </IfModule>
  
+  Options +FollowSymlinks
   RewriteEngine On
+
+    RewriteCond %{HTTP_HOST} ^www.feedes.fr$
+    RewriteRule ^(.*) http://feedes.fr/$1 [QSA,L,R=301]
 # If requested resource exists as a file or directory
   # (REQUEST_FILENAME is only relative in virtualhost context, so not usable)
     RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
@@ -21,7 +25,7 @@
   # Handle Prerender.io
     RequestHeader set X-Prerender-Token "9IwrSjeGTabOzJI8oHrI"
 
-    RewriteCond %{HTTP_USER_AGENT} baiduspider|facebookexternalhit|twitterbot|rogerbot|linkedinbot|embedly|quora\ link\ preview|showyoubot|outbrain|pinterest [NC,OR]
+    RewriteCond %{HTTP_USER_AGENT} baiduspider|site-analyzer|facebookexternalhit|twitterbot|rogerbot|linkedinbot|embedly|quora\ link\ preview|showyoubot|outbrain|pinterest [NC,OR]
     RewriteCond %{QUERY_STRING} _escaped_fragment_
 
     # Proxy the request
@@ -30,3 +34,7 @@
   # If non existent
     # Accept everything on index.html
     RewriteRule ^ /index.html
+
+    
+
+RewriteEngine on

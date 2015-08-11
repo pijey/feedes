@@ -23,7 +23,7 @@
       	<div class="panel-heading"><h4 class="title-center">Horaires</h4></div>
       	<div class="panel-body">
       		<ul class="list-group">
-      			{{#each jour in model.horaires}}
+      			{{#each model.horaires as |jour|}}
       			<li class="list-group-item">{{jour.jour}}<span class="badge">{{jour.horaire}}</span></li>
       			{{/each}}
       		</ul>
@@ -35,7 +35,7 @@
       <div class="panel-heading text-center"><h4>Agenda</h4></div>
       <div class="panel-body">
 	      <ul class="list-group">
-		  {{#each evenement in model.agenda}}
+		  {{#each model.agenda as |evenement|}}
 			  <li class="list-group-item">
 			  	<h4 class="list-group-item-heading">{{evenement.date}}, {{evenement.horaire}}</h4>
 			  	<p class="list-group-item-text">{{evenement.evenement}}</p>
@@ -75,7 +75,7 @@
   	<div class="panel panel-default">
       <div class="panel-heading text-center"><h4>Equipe</h4></div>
       <div class="panel-body">
-	    {{#each membre in model.equipe}}
+	    {{#each model.equipe as |membre|}}
 	    <div class="equipe-membre">
     	    <img src="{{membre.photo_url}}" alt="" class="pull-left"> 
     		<h3>{{membre.prenom}} {{membre.nom}}</h3>
@@ -97,7 +97,7 @@
       <div class="panel-heading text-center"><h4>Données sociales</h4></div>
       <div class="panel-body">
 	      <ul class="list-group">
-	      {{#each donnee in model.social}}
+	      {{#each model.social as |donnee|}}
 	        <li class="list-group-item">
 	        	<h4 class="list-group-item-heading">{{donnee.label}}</h4>
 			  	<p class="list-group-item-text">{{donnee.text}}</p>
