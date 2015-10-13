@@ -1,0 +1,8 @@
+<a aria-expanded="false" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#"><img height="25" width="25" src="{{current.img}}" alt="">&nbsp;{{current.text}}<span class="caret"></span></a>
+<ul role="menu" class="dropdown-menu multi-level">
+{{#each locales as |loc|}}
+  <li value="{{loc.id}}">
+  	<a {{action 'change' loc.id}} href="#"><img height="25" width="25" src="{{loc.img}}" alt="">&nbsp;{{loc.text}}</a>
+  </li>
+{{/each}}	
+</ul>
