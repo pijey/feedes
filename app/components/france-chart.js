@@ -33,14 +33,16 @@ export default Ember.Component.extend({
         thickness: 4,
       },
 
-      zoomControl:{
-        buttonFillColor:"#2C3E50"
+      zoomControl: {
+        panControlEnabled: false,
+        zoomControlEnabled: false,
+        homeButtonEnabled:false
       },
 
       backgroundZoomsToTop: true,
       linesAboveImages: true,
       "responsive": {
-          "enabled": false
+          "enabled": true
       }
     });
 

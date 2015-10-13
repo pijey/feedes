@@ -5,7 +5,7 @@ export default Ember.Route.extend({
 	model: function(params) {
 	  return this.store.find('produit', params.id);
 	},
-	afterModel: function(model) {
+	afterModel: function() {
 	    var store = this.get('store');
 
 	    var promises = [

@@ -5,6 +5,9 @@ module.exports = function(environment) {
     modulePrefix: 'feedes',
     minifyJs: false,
     environment: environment,
+    i18n: {
+      defaultLocale: 'fr'
+    },
     baseURL: '/',
     locationType: 'history',
     contentSecurityPolicy: {

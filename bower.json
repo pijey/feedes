@@ -1,29 +1,30 @@
 {
   "name": "feedes",
   "dependencies": {
-    "jquery": "^1.11.1",
-    "ember": "1.13.0",
-    "ember-data": "1.0.0-beta.15",
-    "ember-resolver": "~0.1.11",
-    "loader.js": "ember-cli/loader.js#1.0.1",
+    "ember": "1.13.7",
+    "ember-data": "1.13.8",
     "ember-cli-shims": "ember-cli/ember-cli-shims#0.0.3",
     "ember-cli-test-loader": "ember-cli-test-loader#0.1.3",
-    "ember-load-initializers": "ember-cli/ember-load-initializers#0.0.2",
-    "ember-qunit": "0.2.8",
+    "ember-load-initializers": "ember-cli/ember-load-initializers#0.1.5",
+    "ember-qunit": "0.4.9",
     "ember-qunit-notifications": "0.0.7",
-    "qunit": "~1.17.1",
-    "bootstrap": "^3.3.1",
-    "bootswatch": "^3.3.1",
+    "bootstrap": "^3.3.5",
+    "bootswatch": "^3.3.5",
     "intro.js": "~1.0.0",
-    "pretender": "0.1.0"
+    "pretender": "0.9.0",
+    "bootstrap-switch": "^3.3.2"
   },
   "resolutions": {
     "ammap": "~3.13.1"
   },
   "devDependencies": {
     "odometer": "~0.4.7",
-    "amcharts": "~3.13.3",
+    "amcharts": "~3.14.5",
     "ammap": "~3.10.0",
-    "jquery-circle-progress": "~1.1.3"
+    "jquery-circle-progress": "~1.1.3",
+    "ember-resolver": "~0.1.18",
+    "jquery": "^2.1.4",
+    "loader.js": "ember-cli/loader.js#3.2.1",
+    "qunit": "~1.18.0"
   }
 }

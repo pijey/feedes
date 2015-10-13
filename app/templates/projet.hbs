@@ -1,150 +1,145 @@
 <div class="row" id="projetDiv">
   <div class="col-md-6 col-md-offset-2">
-  	<h2 id="preambule">Préambule</h2>
+  	<h2 id="preambule">{{t "project.forewords.title"}}</h2>
   	<p class="text-justify">
-  		Disons-le d'entrée, <strong>ce mini-site n'est (pour l'instant) qu'une maquette d'un projet en cours de développement</strong>. Son but est de <strong>présenter</strong> le projet, mais également de permettre aux personnes physiques ou morales intéressées par la démarche de <strong>contribuer</strong> à sa construction (via le {{#link-to 'sondage'}}sondage{{/link-to}} ou de manière plus impliquée).
+  		{{t "project.forewords.content"}}
   	</p>
     
-    <h3 id="presentations">Quelques présentations</h3>
+    <h3 id="presentations">{{t "project.forewords.introductions.title"}}</h3>
 		<div class="section-with-round-img">
 			<div class="thumbnail pull-left">
 				<img src="assets/img/pj.jpg" alt="PJ" class="img-circle">
 			</div>
-			
-			<p class="text-justify">
-				Je m'appelle Pierre-Julien Villoud, j'ai 27 ans et je suis ingénieur en informatique. Depuis 5-6 ans, l'intérêt que je porte à mon alimentation n'a fait que grandir. Les nombreux reportages à charge sur certains produits alimentaires ou certaines pratiques, ainsi que les récents scandales n'ont fait que renforcer cette curiosité ! J'ai donc voulu évoluer vers une manière de me nourrir plus saine, plus responsable et plus respectueuse de l'environnement. Je me suis alors heurté à d'importantes difficultés pour en savoir plus sur le contenu de mon assiette.
-			</p>
-			<p class="text-justify">
-				Un <strong>système opaque</strong>, une <strong>réponse législative inégale</strong> et parfois peu claire et finalement <strong>peu d'informations claires, factuelles et fiables</strong> à disposition du grand public.
-			</p>
-			<p class="text-justify">
-				J'ai donc imaginé Feedes (à prononcer fidèsse), la plate-forme de transparence alimentaire.
-			</p>
+			{{t "project.forewords.introductions.content"}}
 		</div>
 	
 		<div class="clearfix"></div>
 
-		<h2 id="le-projet">Le projet</h2>
+		<h2 id="le-projet">{{t "project.project.title"}}</h2>
 		
-		<h3 id="pourquoi-feedes">Pourquoi Feedes ?</h3>
+		<h3 id="pourquoi-feedes">{{t "project.project.why.title"}}</h3>
 
 		<div class="section-with-round-img">
 			<div class="thumbnail pull-right">
 				<img src="assets/img/fides_domitien.jpg" alt="Fides" class="img-circle">
 				<div class="caption text-center">
- 		       		<a href="http://www.fredericweber.com/articl_dieux/article_fides.htm">Pièce Fides</a><br />par Frédéric Weber
+ 		       		<a href="http://www.fredericweber.com/articl_dieux/article_fides.htm">Pièce Fides</a><br />{{t "global.by"}} Frédéric Weber
 		    	</div>
 			</div>
-			<p class="text-justify">
-				
-				Dans la mythologie romaine, Fides (ou Fidélité) était la déesse de la bonne foi, la gardienne de l'honnêteté et de l'intégrité des transactions entre les hommes. J'ai trouvé que ce principe collait bien au projet, et avec une petite modification orthographique pour rappeler l'acte de se nourrir (to feed en anglais), cela donne Feedes.
-				<blockquote>En <a href="http://fr.wiktionary.org/wiki/fides">latin</a>, cela rapporte à des notions de confiance, de loyauté, de droiture, de bonne foi, de sincérité ou encore d'honnêteté</blockquote>
+			<p class='text-justify'> 
+				{{t "project.project.why.content"}}
 			</p>
 		</div>
 
 		<div class="clearfix"></div>
 
-		<h3 id="constats">Les constats</h3>
+		<h3 id="constats">{{t "project.project.facts.title"}}</h3>
 		<div class="constats">
-			<p class="text-justify">Prenons un moment pour analyser les informations indiquées sur les étiquettes de nos produits, dans l'ordre traditionnel de lecture : </p>
+			<p class="text-justify">{{t "project.project.facts.forewords"}}</p>
 			<div class="list-group">
 				<div class="list-group-item">
 					<img src="assets/img/burger.jpg" alt="burger" class="pull-right img-rounded img-responsive hidden-sm hidden-xs">
-					<h4 class="list-group-item-heading">La photo</h4>
+					<h4 class="list-group-item-heading">{{t "project.project.facts.photo.title"}}</h4>
 					<p class="text-justify list-group-item-text">
-						Qui n'a pas déjà ouvert avec envie un produit présentant une photo alléchante pour se retrouver devant une mixture infâme avec un sentiment de trahison (quelques exemples <a href="http://www.photos-non-contractuelles.fr/">ici</a>)... 
+						{{t "project.project.facts.photo.comment"}} 
 					</p>
 					<p class="text-justify list-group-item-text">
-						Bref, un élément sur lequel on ne peut pas sérieusement se baser pour orienter notre choix.
+						{{t "project.project.facts.photo.conclusion"}} 
 					</p>
 					<blockquote>
-						<em>Photo non contractuelle</em> ou encore <em>Suggestion de présentation</em>...
+						{{t "project.project.facts.photo.quote"}} 
 					</blockquote>
 					<div class="clearfix"></div>
 				</div>
 				
 				<div class="list-group-item">
 					<img src="assets/img/Alsace_Lait.svg" alt="alsace" class="pull-right img-rounded img-responsive hidden-sm hidden-xs">
-					<h4 class="list-group-item-heading">La marque</h4>
-					<p class="text-justify list-group-item-text">Un critère d'achat important car synonyme pour nous de qualité ou de bon rapport qualité/prix par exemple. Et pourtant, les marques ne sont pas tout le temps les fabricants de leurs produits (c'est le cas pour beaucoup de produits de marque distributeurs qui malgré une marque et un packaging différent, sont élaborés par le même fabricant) ou peuvent induire le consommateur en erreur quant à l'origine du produit (exemple : Alsace lait qui fabrique ses yaourts en... Savoie...)</p>
+					<h4 class="list-group-item-heading">{{t "project.project.facts.brand.title"}}</h4>
+					<p class="text-justify list-group-item-text">
+						{{t "project.project.facts.brand.comment"}} 
+					</p>
 					<blockquote>
-						<em>Yaourts Alsace Lait</em>. Des yaourts fabriqués en Savoie...
+						{{t "project.project.facts.brand.quote"}} 
 					</blockquote>
 					<div class="clearfix"></div>
 				</div>
 				
 				<div class="list-group-item">
-					<h4 class="list-group-item-heading">Le nom du produit</h4>
+					<h4 class="list-group-item-heading">{{t "project.project.facts.name.title"}}</h4>
 				</div>
 				<div class="list-group-item">
 					<img src="assets/img/ketchup.jpg" alt="ketchup" class="pull-right img-rounded img-responsive hidden-sm hidden-xs">
-					<h4 class="list-group-item-heading">La composition</h4>
-					<p class="text-justify list-group-item-text">Additifs inconnus à base de combinaisons de lettres et de chiffres, acides -iques en tout genre et autres matières grasses végétales non hydrogénées... Nous voilà bien avancés... Sans parler des proportions souvent absentes ou partielles !</p>
+					<h4 class="list-group-item-heading">{{t "project.project.facts.ingredients.title"}}</h4>
+					<p class="text-justify list-group-item-text">
+						{{t "project.project.facts.ingredients.comment"}}
+					</p>
 					<blockquote>
-						<em>Antioxygène, amidon modifié de pommes de terre...</em> Qu'est-ce que c'est ?
+						{{t "project.project.facts.ingredients.quote"}}
 					</blockquote>
 					<div class="clearfix"></div>
 				</div>
 				
 				<div class="list-group-item">
 					<img src="assets/img/nutrition.jpg" alt="nutrition" class="pull-right img-rounded img-responsive hidden-sm hidden-xs">
-					<h4 class="list-group-item-heading">Les informations nutritionnelles</h4>
-					<p class="text-justify list-group-item-text">Des informations intéressantes pouvant être utilisées pour comparer deux produits par exemple, mais souvent difficilement exploitables (valeurs "pour 100g" peu pertinentes, apports journaliers recommandés basés sur une valeur moyenne...).</p>
+					<h4 class="list-group-item-heading">{{t "project.project.facts.nutritional_facts.title"}}</h4>
+					<p class="text-justify list-group-item-text">
+						{{t "project.project.facts.nutritional_facts.comment"}}
+					</p>
 					<blockquote>
-						<em>Pour 100g de produits sec, 3,5g d'acides gras saturés</em>. Nous voilà bien avancés...
+						{{t "project.project.facts.nutritional_facts.quote"}}
 					</blockquote>
 					<div class="clearfix"></div>
 				</div>
 			</div>	
 			<p class="text-justify">
-				Les informations présentes sur les étiquettes sont généralement insuffisantes, voire même désinformatives !
+				{{t "project.project.facts.conclusion"}}
 			</p>
 		</div>
-		<h3 id="idee">L'idée</h3>
+		<h3 id="idee">{{t "project.project.idea.title"}}</h3>
 		<div class="section-with-round-img">
 			<div class="thumbnail pull-left">
 				<img src="assets/img/idea.jpg" alt="Idée" class="img-circle">
 				<div class="caption text-center">
-		       		<a href="https://www.flickr.com/photos/brunkfordbraun/330793963">Idée</a><br />par Joey Gannon
+		       		<a href="https://www.flickr.com/photos/brunkfordbraun/330793963">Idée</a><br />{{t "global.by"}} Joey Gannon
 		    	</div>
 			</div>
 			
 			<p class="text-justify">
-				Entre les informations réglementaires (plus ou moins utiles ou compréhensibles) et les éléments marketings, il ne reste plus beaucoup de place pour des informations réellement pertinentes pour le consommateur. 
+				{{t "project.project.idea.source"}}
 			</p>
 			<p class="text-justify">
-				J'ai donc imaginé une plate-forme web (accessible également sur mobile ou tablette) permettant aux <strong>acteurs du secteur agro-alimentaire</strong> (producteurs, distributeurs, restaurateurs, marques alimentaires, grandes surfaces et autres) <strong>d'informer le grand public de manière précise et transparente</strong> sur l'origine, la fabrication et la distribution des produits alimentaires qu'ils proposent.
+				{{t "project.project.idea.pitch"}}
 			</p>
 		</div>
 		<div class="clearfix"></div>
 
-		<h3 id="objectif">L'objectif</h3>
+		<h3 id="objectif">{{t "project.project.goal.title"}}</h3>
 		
 		<div class="section-with-round-img">
 			<div class="thumbnail pull-right">
 				<img src="assets/img/handshake.jpg" alt="Confiance" class="img-circle">
 				<div class="caption text-center">
-		       		<a href="https://www.flickr.com/photos/dhendrix/6644037141/in/photolist-4uo8TF-6dEniD-6dEndk-4fgaGY-dv2kHu-2vH4Ma-7gUnxA-i6ycVY-b87qLv-bD2bs2-bD2b1X-bD2aFx-bq7e8d-bq7dZS-aEWEGz-f7Juj-97Kfzp-981nQ5-7K4pkQ-bPXFDV-b6iQb2-6DrZqn-a13tem-rbKTgr-5RgyZr-5pR7vK-9H923x-mKLfb2-b6fLQv-b6fGoT-b6fFPx-Ncdt5-b6iSkk-7cRKbD-duVKuF-4EAAZ6-MLdV-csxSEb-pzBJBJ-pi8Gft-pia1qJ-EmHzx-kdK64b-89xksJ-eifnE3-b6eJYg-pi8HnD-pxBfDf-pi9Z9A-piaiL4">Poignée de main</a><br />par dhendrix73
+		       		<a href="https://www.flickr.com/photos/dhendrix/6644037141/in/photolist-4uo8TF-6dEniD-6dEndk-4fgaGY-dv2kHu-2vH4Ma-7gUnxA-i6ycVY-b87qLv-bD2bs2-bD2b1X-bD2aFx-bq7e8d-bq7dZS-aEWEGz-f7Juj-97Kfzp-981nQ5-7K4pkQ-bPXFDV-b6iQb2-6DrZqn-a13tem-rbKTgr-5RgyZr-5pR7vK-9H923x-mKLfb2-b6fLQv-b6fGoT-b6fFPx-Ncdt5-b6iSkk-7cRKbD-duVKuF-4EAAZ6-MLdV-csxSEb-pzBJBJ-pi8Gft-pia1qJ-EmHzx-kdK64b-89xksJ-eifnE3-b6eJYg-pi8HnD-pxBfDf-pi9Z9A-piaiL4">Poignée de main</a><br />{{t "global.by"}} dhendrix73
 		    	</div>
 			</div>
 			
 			<p class="text-justify">
-				L'objectif de ce projet est de rétablir la <strong>confiance</strong> entre les acteurs de l'agro-alimentaire désireux de rentrer dans une démarche de <strong>transparence</strong> et le grand public, de plus en plus exigeant et méfiant par rapport aux aliments qu'il consomme.
+				{{t "project.project.goal.trust"}}
 			</p>
 			<p class="text-justify">
-				Les consomm'acteurs pourraient se <strong>réapproprier l'acte de se nourrir</strong> et ainsi s'alimenter en fonction des critères ou des valeurs qui leurs sont propres en ne se basant plus uniquement sur les critères d'achat classiques (prix, marque, packaging...).
+				{{t "project.project.goal.empowerment"}}
 			</p>
 		</div>
 		
 		<div class="clearfix"></div>
 
-		<h2 id="transparence">La transparence</h2>
+		<h2 id="transparence">{{t "project.transparency.title"}}</h2>
 		
 		<p class="text-justify">
-			Exiger de la transparence de la part des acteurs de l'agro-alimentaire implique plusieurs éléments.
+			{{t "project.transparency.forewords"}}
 		</p>
 
-		<h3 id="structure">Une structure adaptée et transparente</h3>
+		<h3 id="structure">{{t "project.transparency.structure.title"}}</h3>
 		<div class="section-with-round-img">
 			<div class="thumbnail pull-left">
 				<img src="assets/img/glass.jpg" alt="Transparence" class="img-circle">
@@ -153,116 +148,117 @@
 		    	</div>
 			</div>
 			
-			<p class="text-justify">La structure porteuse du projet doit avoir une <strong>forme juridique adaptée</strong> aux valeurs portées par ce dernier (transparence, confiance, honnêteté, coopération...). Les SCOP, les SCIC ou la piste associative font partie des possibilités (vous pouvez donner votre avis sur ce point dans le {{#link-to 'sondage'}}sondage{{/link-to}}). Rien n'est encore défini à ce stade.</p>
+			<p class="text-justify">
+				{{t "project.transparency.structure.legal"}}
+			</p>
 			   
-			<p class="text-justify">La confiance est au coeur du projet. Il est donc nécessaire de devenir un <strong>tiers de confiance</strong> auprès du grand public mais également auprès des acteurs de l'agro-alimentaire. Pour cela, la première obligation est la transparence pour l'entité créée. Cette dernière doit être totale et doit donc rendre public et visible : 
+			<p class="text-justify">
+				{{t "project.transparency.structure.trust.forewords"}}
 				<div class="clearfix"></div>			
 				<ul>
-					<li>Les sources des données présentées</li>
-					<li>Les éventuels contrôles effectués sur ces données</li>
-					<li>Les personnes travaillant sur le projet, leur parcours, leur temps de travail et leur rémunération (le cas échéant).</li>
-					<li>Les partenaires privés et/ou publics</li>
-					<li>Le prix des prestations s'il y a lieu</li>
-					<li>Les aides perçues le cas échéant</li>
+					<li>{{t "project.transparency.structure.trust.source"}}</li>
+					<li>{{t "project.transparency.structure.trust.controls"}}</li>
+					<li>{{t "project.transparency.structure.trust.people"}}</li>
+					<li>{{t "project.transparency.structure.trust.partners"}}</li>
+					<li>{{t "project.transparency.structure.trust.price"}}</li>
+					<li>{{t "project.transparency.structure.trust.subsidiaries"}}</li>
 					<li>...</li>
 				</ul>
 			</p>
 		</div>
 
-		<h3 id="reassurance">Des leviers de réassurance</h3>
+		<h3 id="reassurance">{{t "project.transparency.structure.insurance.title"}}</h3>
 		
 		<div class="section-with-round-img">
 			
 			<p class="text-justify">
 				<blockquote>
-					Pourquoi devrais-je croire les informations fournies par les acteurs agro-alimentaires ?
+					{{t "project.transparency.structure.insurance.why_believe"}}
 				</blockquote>
 				<div class="thumbnail pull-right">
 					<img src="assets/img/sceau.jpg" alt="Reassurance" class=" img-circle">
 					<div class="caption text-center">
-			       		<a href="https://www.flickr.com/photos/remimathis/8686131719/in/photolist-MiXyJ-4fsYG-7Z9zm-78yVq1-eeyGkH-83Siif-egRUMW-he9C8n-8TzSG-kuZjc1-bNjxG2-obsh4R-epDkj2-eKmWeY-dTEHiG-5MmDqW-kuZnR5-kuX9M4-n4T51x-guvFhz">Sceau Gramont</a><br />par Rémi Mathis
+			       		<a href="https://www.flickr.com/photos/remimathis/8686131719/in/photolist-MiXyJ-4fsYG-7Z9zm-78yVq1-eeyGkH-83Siif-egRUMW-he9C8n-8TzSG-kuZjc1-bNjxG2-obsh4R-epDkj2-eKmWeY-dTEHiG-5MmDqW-kuZnR5-kuX9M4-n4T51x-guvFhz">Sceau Gramont</a><br />{{t "global.by"}} Rémi Mathis
 			    	</div>
 				</div>
-				
-				C'est probablement (et à juste titre) la première question que vous vous posez et la première réponse est que <strong>vous ne devriez pas les croire</strong>... Du moins pas sans un certain nombre de leviers de réassurance même si faire de fausses déclarations n'est pas anodin et peut être répréhensible (par la <a href="http://www.economie.gouv.fr/dgccrf/La-DGCCRF/Missions">DGCCRF</a> notamment). Plusieurs leviers ont été imaginés jusqu'ici dont : 
-				
+				{{t "project.transparency.structure.insurance.you_shouldnt"}}
 				<ul>
-					<li>L'élaboration et la signature d'une charte</li>
-					<li>Des partenariats avec des associations de consommateurs ou des organismes spécialisés</li>
-					<li>Des contrôles</li>
-					<li>Des signalements</li>
-					<li>Vous en voyez d'autres ? Direction le {{#link-to 'sondage'}}sondage{{/link-to}} alors !</li>
+					<li>{{t "project.transparency.structure.insurance.leverages.charter"}}</li>
+					<li>{{t "project.transparency.structure.insurance.leverages.partnership"}}</li>
+					<li>{{t "project.transparency.structure.insurance.leverages.controls"}}</li>
+					<li>{{t "project.transparency.structure.insurance.leverages.reports"}}</li>
+					<li>{{t "project.transparency.structure.insurance.leverages.others"}}</li>
 				</ul>
 				<div class="clearfix"></div>
 			</p>
 		</div>
 
-		<h3 id="confiance">Rétablir la confiance</h3>
+		<h3 id="confiance">{{t "project.transparency.structure.restore_trust.title"}}</h3>
 		<p class="text-justify">
 			<blockquote>
-				Pourquoi ne pas chercher ses informations par vous-mêmes ?
+				{{t "project.transparency.structure.restore_trust.why"}}
 			</blockquote>
 		</p>
 		<div class="section-with-round-img">
 			<div class="thumbnail pull-left">
 				<img src="assets/img/creuser.jpg" alt="Creuser" class="img-circle">
 				<div class="caption text-center">
-		       	<a href="https://www.flickr.com/photos/bigtallguy/498260191">Dig Here</a><br />par Paul Reynolds
+		       	<a href="https://www.flickr.com/photos/bigtallguy/498260191">Dig Here</a><br />{{t "global.by"}} Paul Reynolds
 		    	</div>
 			</div>
 			
 			<p class="text-justify">
-				C'est sans doute (encore une fois à juste titre..) la deuxième question que vous vous posez. Il y a plusieurs réponses qui motivent ce choix.
+				{{t "project.transparency.structure.restore_trust.because"}}
 			</p>
 			<p class="text-justify">
-			La première est que cela représente un travail titanesque dont les résultats ne pourraient être que partiels.
+				{{t "project.transparency.structure.restore_trust.big_work"}}
 			</p>
 			<p class="text-justify">
-				La deuxième est que ce sont les acteurs agro-alimentaires qui possèdent toutes ces informations et un des objectifs est bien le rétablissement d'une relation de confiance entre eux et les consommateurs. Rien n'oblige les acteurs qui ne souhaitent pas rentrer dans cette démarche de transparence à le faire. 
+				{{t "project.transparency.structure.restore_trust.restore_trust"}}
 			</p>
 			<div class="clearfix"></div>
 		</div>
 
-		<h3 id="economique">Le modèle économique</h3>
+		<h3 id="economique">{{t "project.transparency.structure.business_model.title"}}</h3>
 		<div class="section-with-round-img">
 			<div class="thumbnail pull-right">
 				<img src="assets/img/euro.jpg" alt="Euro" class="img-circle">
 				<div class="caption text-center">
-		       	<a href="https://www.flickr.com/photos/59937401@N07/5857501289/in/photostream/">10 Euro Note in a plant pot</a><br />par Images Money
+		       	<a href="https://www.flickr.com/photos/59937401@N07/5857501289/in/photostream/">10 Euro Note in a plant pot</a><br />{{t "global.by"}} Images Money
 		    	</div>
 			</div>
 		    
 			<p class="text-justify">
-				Ici, les choses commencent à se compliquer car l'argent ne pousse pas... La réalisation et la maintenance d'une telle plate-forme demande du temps et de l'argent. Où et à qui demander cet argent ?
+				{{t "project.transparency.structure.business_model.money"}}
 			</p>
 			<p class="text-justify">
-				L'idée première est de faire porter ces coûts sur les <strong>acteurs agro-alimentaires</strong>, le référencement de leurs produits sur la plate-forme étant une forme de service (leur offrant une certaine visibilité voire publicité). Le problème de ce modèle est l'indépendance de la plate-forme puisque cette dernière dépendrait directement du financement des acteurs. Les consommateurs pourraient se poser la question de la légitimité et de la crédibilité des informations affichées.
+				{{t "project.transparency.structure.business_model.food_industry"}}
 			</p>
 			<p class="text-justify">
-				La deuxième possibilité consiste à mettre les <strong>consommateurs</strong> à contribution (abonnement, adhésion, crowd-funding, les possibilités sont nombreuses). Cette solution semble injuste pour le consommateur (déjà beaucoup sollicité...) mais garantit l'indépendance du service.
+				{{t "project.transparency.structure.business_model.consumers"}}
 			</p>
 			<p class="text-justify">
-				La troisième possibilité consiste à dépendre de financements <strong>publics ou d'associations de consommateurs</strong>. Cette option peut être viable pour la mise en route du projet, mais paraît difficile sur la durée.
+				{{t "project.transparency.structure.business_model.public"}}
 			</p>
 			<p class="text-justify">
-				Cela peut également être une combinaison de ces différentes possibilités... Qu'en pensez-vous ? Donnez votre avis dans le {{#link-to 'sondage'}}sondage{{/link-to}} !
+				{{t "project.transparency.structure.business_model.combinations"}}
 			</p>
 		</div>
   </div>
 	<div id="affixDiv" class="col-md-2 affix-nav hidden-xs hidden-sm" >
 	    <ul class="nav affix-nav list-group" id="myAffix">
-	    	<li class="list-group-item">Préambule</li>
-		  	<li class="list-group-item active"><a {{action "scrollAffix" "#presentations"}} href="#presentations">Quelques présentations</a></li>
-		  	<li class="list-group-item">Le projet</li>
-	  	    <li class="list-group-item"><a {{action "scrollAffix" "#pourquoi-feedes"}} href="#pourquoi-feedes">Pourquoi Feedes ?</a></li>
-	  	    <li class="list-group-item"><a {{action "scrollAffix" "#constats"}} href="#constats">Les constats</a></li>
-	  	    <li class="list-group-item"><a {{action "scrollAffix" "#idee"}} href="#idee">L'idée</a></li>
-	  	    <li class="list-group-item"><a {{action "scrollAffix" "#objectif"}} href="#objectif">L'objectif</a></li>
-		  	<li class="list-group-item">La transparence</li>
-	  	    <li class="list-group-item"><a {{action "scrollAffix" "#structure"}} href="#structure">Une structure adaptée et transparence</a></li>
-	  	    <li class="list-group-item"><a {{action "scrollAffix" "#reassurance"}} href="#reassurance">Des leviers de réassurance</a></li>
-	  	    <li class="list-group-item"><a {{action "scrollAffix" "#confiance"}} href="#confiance">Rétablir la confiance</a></li>
-	  	    <li class="list-group-item"><a {{action "scrollAffix" "#economique"}} href="#economique">Le modèle économique</a></li>
+	    	<li class="list-group-item">{{t "project.forewords.title"}}</li>
+		  	<li class="list-group-item active"><a {{action "scrollAffix" "#presentations"}} href="#presentations">{{t "project.forewords.introductions.title"}}</a></li>
+		  	<li class="list-group-item">{{t "project.project.title"}}</li>
+	  	    <li class="list-group-item"><a {{action "scrollAffix" "#pourquoi-feedes"}} href="#pourquoi-feedes">{{t "project.project.why.title"}}</a></li>
+	  	    <li class="list-group-item"><a {{action "scrollAffix" "#constats"}} href="#constats">{{t "project.project.facts.title"}}</a></li>
+	  	    <li class="list-group-item"><a {{action "scrollAffix" "#idee"}} href="#idee">{{t "project.project.idea.title"}}</a></li>
+	  	    <li class="list-group-item"><a {{action "scrollAffix" "#objectif"}} href="#objectif">{{t "project.project.goal.title"}}</a></li>
+		  	<li class="list-group-item">{{t "project.transparency.title"}}</li>
+	  	    <li class="list-group-item"><a {{action "scrollAffix" "#structure"}} href="#structure">{{t "project.transparency.structure.title"}}</a></li>
+	  	    <li class="list-group-item"><a {{action "scrollAffix" "#reassurance"}} href="#reassurance">{{t "project.transparency.structure.insurance.title"}}</a></li>
+	  	    <li class="list-group-item"><a {{action "scrollAffix" "#confiance"}} href="#confiance">{{t "project.transparency.structure.restore_trust.title"}}</a></li>
+	  	    <li class="list-group-item"><a {{action "scrollAffix" "#economique"}} href="#economique">{{t "project.transparency.structure.business_model.title"}}</a></li>
 		</ul>	            
 	</div>
 </div>

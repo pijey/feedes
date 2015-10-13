@@ -8,7 +8,9 @@ module.exports = function(defaults) {
       'theme': 'flatly', 
       'excludeJS': false   
     },
-    
+    'ember-bootstrap-switch': {
+      excludeCSS: false
+    },
     minifyCSS: {
       enabled: true
     },

@@ -5,7 +5,7 @@ export default Ember.View.extend({
 	initWidgets: function(){
 
 		// show a map of a fixed position 
-		var map = Osm().radius(0.008).position(this.get('controller.model.latitude'), this.get('controller.model.longitude'));
+		var map = new Osm().radius(0.008).position(this.get('controller.model.latitude'), this.get('controller.model.longitude'));
 		Ember.$("#map").html(map.show());
 		Ember.$("#map > iframe").attr("width", "260");
 		 

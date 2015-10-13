@@ -1,6 +1,6 @@
 {{!-- Header --}}
 <header>
-<nav class="navbar navbar-default">
+<nav class="navbar {{if consumerMode "navbar-default" "navbar-inverse"}}">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
@@ -9,39 +9,48 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    {{#link-to 'home' classNames="navbar-brand"}}<img src="assets/img/feedes_logo.png" class="logo"/>{{/link-to}}
-    <p class="navbar-text hidden">La transparence alimentaire</p>
+    
+    {{#if consumerMode}}
+      {{#link-to 'home' classNames="navbar-brand"}}<img src="assets/img/feedes_logo.png" class="logo"/>{{/link-to}}
+    {{else}}
+      {{#link-to 'home' classNames="navbar-brand"}}<img src="assets/img/feedes_logo2.png" class="logo"/>{{/link-to}}
+    {{/if}}
+    
+    <p class="navbar-text hidden">{{t "application.top_menu.food_transparency"}}</p>
     </div>
     <div class="collapse navbar-collapse" id="navbar-collapse">
       <ul class="nav navbar-nav">
-        <li>{{#link-to 'projet'}}Le projet{{/link-to}}</li>
+        <li>{{#link-to 'projet'}}{{t "application.top_menu.project"}}{{/link-to}}</li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-              Exemples<span class="caret"></span>
+              {{t "application.top_menu.examples"}}<span class="caret"></span>
           </a>
           <ul class="dropdown-menu multi-level" role="menu">
             <li class="dropdown-submenu">
-              <a href="#" tabindex="-1">Pain de mie</a>
+              <a data-target="#" tabindex="-1">{{t "application.top_menu.white_bread"}}</a>
               <ul class="dropdown-menu">
-                <li>{{#link-to 'qui'}}Acteurs{{/link-to}}</li>
-                <li>{{#link-to 'quoi'}}Composition{{/link-to}}</li>
-                <li>{{#link-to 'ou'}}Origine{{/link-to}}</li>
-                <li>{{#link-to 'comment'}}Fabrication{{/link-to}}</li>
-                <li>{{#link-to 'combien'}}Prix{{/link-to}}</li>
+                <li>{{#link-to 'qui'}}{{t "application.top_menu.players"}}{{/link-to}}</li>
+                <li>{{#link-to 'quoi'}}{{t "application.top_menu.ingredients"}}{{/link-to}}</li>
+                <li>{{#link-to 'ou'}}{{t "application.top_menu.origin"}}{{/link-to}}</li>
+                <li>{{#link-to 'comment'}}{{t "application.top_menu.fabrication"}}{{/link-to}}</li>
+                <li>{{#link-to 'combien'}}{{t "application.top_menu.price"}}{{/link-to}}</li>
               </ul>
             </li>
             {{!-- <li>{{#link-to 'fruits-legumes' 3}}Oeufs{{/link-to}}</li> --}}
             {{!-- <li>{{#link-to 'fruits-legumes' 2}}Salade{{/link-to}}</li> --}}
-            <li>{{#link-to 'viandes' 4}}Steak{{/link-to}}</li>
+            <li>{{#link-to 'viandes' 4}}{{t "application.top_menu.steak"}}{{/link-to}}</li>
           </ul>
         </li>
           
-        <li>{{#link-to 'sondage'}}Sondage{{/link-to}}</li>
+        <li>{{#link-to 'sondage'}}{{t "application.top_menu.poll"}}{{/link-to}}</li>
       </ul>
+
+      <div id="switch" data-trigger="hover" data-original-title="{{t "home.switch.popover-title"}}" data-title="{{t "home.switch.popover-title"}}" data-content="{{t "home.switch.popover-content"}}" data-container="body" data-toggle="popover" data-placement="bottom" class=" hidden-xs navbar-center">{{bs-switch checked=consumerMode on-text="Conso" off-text="Agro"}}</div>
       <ul class="nav navbar-nav navbar-right">
-        <li>{{#link-to 'posts'}}Blog{{/link-to}}</li>
-        <li>{{#link-to 'contact'}}Contact{{/link-to}}</li>
-        <li>{{#link-to 'a-propos'}}A propos{{/link-to}}</li>
+        <li>{{#link-to 'posts'}}{{t "application.top_menu.blog"}}{{/link-to}}</li>
+        <li>{{#link-to 'contact'}}{{t "application.top_menu.contact"}}{{/link-to}}</li>
+        <li>{{#link-to 'a-propos'}}{{t "application.top_menu.about"}}{{/link-to}}</li>
+        {{language-chooser}}
       </ul>
     </div>
   </div>
@@ -49,6 +58,7 @@
 </header>
 {{!-- Content --}}
 <div class="container-fluid">
+  <div id="switch" class=" visible-xs text-center mobile-switch">{{bs-switch checked=consumerMode on-text="Conso" off-text="Agro"}}</div>
   {{outlet}}
 </div>
 

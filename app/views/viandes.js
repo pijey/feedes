@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.View.extend({
    	initWidgets: function(){
    		var value = this.get('controller.model.transparence');
-   		Ember.$('#circle-transparency').circleProgress({
+   		Ember.$('.circle-transparency').circleProgress({
 	        value: value/100,
 	        size: 80,
 	        startAngle:-Math.PI/2,
@@ -15,7 +15,7 @@ export default Ember.View.extend({
 		    Ember.$(this).find('strong').html(parseInt(100 * stepValue) + '<i>%</i>');
 		});
     	var that = this;
-   		Ember.$('#circle-price-prod').circleProgress({
+   		Ember.$('.circle-price-prod').circleProgress({
 	        value: that.get('controller.model.prix_producteur')/that.get('controller.model.prix_conditionnement'),
 	        size: 80,
 	        startAngle:-Math.PI/2,
@@ -62,7 +62,7 @@ export default Ember.View.extend({
 
 		Ember.$('.variation-pourcent').attr('style', 'width:'+ this.get('controller.model.part_producteur') +'%');
 
-   		Ember.$('#circle-nutrition').circleProgress({
+   		Ember.$('.circle-nutrition').circleProgress({
 	        value: 1,
 	        size: 80,
 	        animation: false,
@@ -72,7 +72,7 @@ export default Ember.View.extend({
 
     	});
 
-    	Ember.$('#circle-intermed').circleProgress({
+    	Ember.$('.circle-intermed').circleProgress({
 	        value: 1,
 	        size: 80,
 	        animation: false,

@@ -12,7 +12,7 @@
 }
 
 .world-chart, .france-chart {
-    min-height: 650px;
+    min-height: 400px;
 }
 
 .pie-chart {
@@ -114,6 +114,7 @@ a.simple-link {
 
 .call-to-action, .call-to-action button {
     font-size: 20px !important;
+    display: inline-block;
 }
 
 @media (max-width: 990px) {
@@ -122,19 +123,25 @@ a.simple-link {
     } 
 }
 
+
+
 /* Widgets */
 .circle {
     width: 100px;
     margin: 6px 6px 20px;
     display: inline-block;
+    text-align: center;
+    line-height: 1.2;
+    vertical-align: middle;
+}
+
+.circle.right {
     position: absolute;
     top: 0;
     right: 0;
-    text-align: center;
-    line-height: 1.2;
 }
 
-.circle strong {
+.circle.left strong, .circle.right strong {
     position: absolute;
     top: 20px;
     left: 0px;
@@ -144,24 +151,53 @@ a.simple-link {
     font-size: 20px;
 }
 
-#circle-nutrition {
-    top: 135px;
+.circle.align strong {
+    position: relative;
+    top: -80px;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+}
+
+.circle.left {
+    width: 100px;
+    margin: 6px 6px 20px;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.no-height {
+    height: 0;
 }
 
 #circle-origin {
-    top: 260px;
+    top: 120px;
 }
 
 #circle-price-prod {
-    top: 395px;
+    top: 120px;
 }
 
 #circle-intermed {
-    top: 535px;
+    top: 240px;
 }
 
-#circle-origin > img {
-    width: 90px;
+.circle-origin > img {
+    width: 85px;
+}
+
+.light-overlay {
+    opacity: 0;
+}
+
+.popover-content, .popover-title {
+    text-align: center;
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -197,6 +233,10 @@ a.simple-link {
 }
 
 /* Bootstrap additions */
+
+.jumbotron.visible-xs {
+    padding-left: 5px;
+}
 
 .dropdown-submenu {
     position: relative;
@@ -238,9 +278,19 @@ a.simple-link {
     cursor: help;
 }
 
-.alert-success > p > a {
-    color: #0F7864;
+.mobile-switch {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
+
+.alert {
+    margin-top: 5px;
+} 
+
+.alert-primary {
+    background-color: #2C3E50;
+    color: #fff !important;
+} 
 
 .alert.no-bottom-margin {
     margin-bottom: 0px !important;
@@ -251,7 +301,20 @@ a.simple-link {
 }
 
 .carousel-indicators {
-    bottom: -7px !important;
+    bottom: -10px !important;
+}
+
+.carousel-indicators .active {
+    background-color: #2C3E50 !important;
+}
+.carousel-indicators li {
+    border: 1px solid #2C3E50 !important;
+}
+
+.carousel-caption h4 {
+    width: 550px;
+    display: inline-block;
+    background-color: #2C3E50;
 }
 
 .navbar-header {
@@ -266,6 +329,17 @@ a.simple-link {
 .navbar {
     border-radius: 0px !important;
     margin-bottom: 0px !important;
+}
+
+.navbar-center
+{
+    position: absolute;
+    width: 33%;
+    margin: 0 33% 0 33%;
+    left: 0;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .site-title {

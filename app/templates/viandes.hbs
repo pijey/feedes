@@ -13,14 +13,23 @@
   	</div>
     <div class="overlap">
       {{france-chart dataProvider=dataProvider.chartDataProvider}}
-      
-      <div id="circle-transparency" class="circle">Transparence<strong></strong></div>
-      <div id="circle-nutrition" class="circle">Nutrition<strong>{{model.note_nutritionnelle}}</strong></div>
-      <div id="circle-origin" class="circle"><img src="{{model.origine_img}}" alt="{{model.origine_macro}}" title="{{model.origine_macro}}">Origine</div>
-      <div id="circle-price-prod" class="circle">Part producteur<strong></strong></div>
-      <div id="circle-intermed" class="circle">Intermediaires<strong>{{model.distance}}</strong></div>
+      <div class="hidden-xs">
+        <div id="circle-transparency" class="circle-transparency circle left">Transparence<strong></strong></div>
+        <div id="circle-price-prod" class="circle-price-prod circle left">Part producteur<strong></strong></div>
+
+        <div id="circle-nutrition" class="circle-nutrition circle right">Nutrition<strong>{{model.note_nutritionnelle}}</strong></div>
+        <div id="circle-origin" class="circle-origin circle right"><img src="{{model.origine_img}}" alt="{{model.origine_macro}}" title="{{model.origine_macro}}">Origine</div>
+        <div id="circle-intermed" class="circle-intermed circle right">Intermediaires<strong>{{model.distance}}</strong></div>
+      </div>
     </div>
-    
+    <div class="visible-xs panel panel-default">
+      <div class="circle-transparency circle align">Transparence<div class="no-height"><strong></strong></div></div>
+      <div class="circle-price-prod circle align">Producteur<div class="no-height"><strong></strong></div></div>
+
+      <div class="circle-nutrition circle align">Nutrition<div class="no-height"><strong>{{model.note_nutritionnelle}}</strong></div></div>
+      <div class="circle-origin circle align"><img src="{{model.origine_img}}" alt="{{model.origine_macro}}" title="{{model.origine_macro}}"><div>Origine</div></div>
+      <div class="circle-intermed circle align">Intermediaires<div class="no-height"><strong>{{model.distance}}</strong></div></div>
+    </div>
     <div class="panel panel-default">
       	<div class="panel-heading"><h4 class="title-center">Acteurs et processus</h4></div>
       	<div class="panel-body">
@@ -86,12 +95,6 @@
   </div>
   <div class="col-lg-2 col-lg-offset-1 col-md-3 col-lg-pull-6 col-md-pull-6">
     <div class="panel panel-default">
-      	<div class="panel-heading"><h4 class="title-center">Produit</h4></div>
-      	<div class="panel-body">
-	      	<img class="img-responsive" src="{{model.photo_url}}" alt=""> 
-      	</div>
-    </div>
-    <div class="panel panel-default">
       <div class="panel-heading"><h4 class="title-center">Origine</h4></div>
       <div class="panel-body">
         <h2 class="text-center">{{model.origine_macro}}</h2>
@@ -105,25 +108,7 @@
         </ul>
       </div>
     </div>
-    <div class="panel panel-default">
-      <div class="panel-heading"><h4 class="title-center">Distances</h4></div>
-      <div class="panel-body text-center">
-      	<div>
-      		{{ember-odometer value=model.kms format="(ddd)" theme="minimal"}}&nbsp;&nbsp;&nbsp;kms
-      	</div>
-      	<div class="clearfix"></div>
-      	<h4>Modes de transports utilisés</h4>
-      	<ul class="list-group">
-      	{{#each model.modes_transports as |transport|}}
-      	  	<li class="list-group-item">{{transport}}</li>
-      	{{/each}}
-      		
-      	</ul>
-      </div>
-      {{!-- <div class="panel-footer text-center">
-      	<a href="#">En savoir plus</a>
-      </div> --}}
-    </div>
+    
     {{#if model.energie_portion}}
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -169,33 +154,59 @@
       </div>
     </div>
     {{/if}}
-  </div>  
-  <div class="col-lg-2 col-md-3">
     <div class="panel panel-default">
       <div class="panel-heading text-center"><h4>Prix</h4></div>
       <div class="panel-body text-center">
-	      <h3>{{model.prix_conditionnement}} € / {{model.unite_conditionnement}} <span class="glyphicon glyphicon-triangle-top text-danger" data-toggle="tooltip" data-placement="top" title="Prix en hausse"></span></h3>
-	      <h3>soit {{model.prix_global}} € / {{model.unite_globale}}</h3>
-	      <h4>Producteur : {{model.prix_producteur}} € / {{model.unite_conditionnement}} <span class="glyphicon glyphicon-triangle-top text-success" data-toggle="tooltip" data-placement="top" title="Part du producteur en hausse"></span></h4>
-			<div class="pourcent1" data-toggle="tooltip" data-placement="top" title="Part du producteur : {{model.part_producteur}}%">
-				<img src="assets/img/veau-minus.png" class="pourcent2" >
-				<div class="variation-pourcent list-group-item-warning"></div>
-			</div>
+        <h3>{{model.prix_conditionnement}} € / {{model.unite_conditionnement}} <span class="glyphicon glyphicon-triangle-top text-danger" data-toggle="tooltip" data-placement="top" title="Prix en hausse"></span></h3>
+        <h3>soit {{model.prix_global}} € / {{model.unite_globale}}</h3>
+        <h4>Producteur : {{model.prix_producteur}} € / {{model.unite_conditionnement}} <span class="glyphicon glyphicon-triangle-top text-success" data-toggle="tooltip" data-placement="top" title="Part du producteur en hausse"></span></h4>
+      <div class="pourcent1" data-toggle="tooltip" data-placement="top" title="Part du producteur : {{model.part_producteur}}%">
+        <img src="assets/img/veau-minus.png" class="pourcent2" >
+        <div class="variation-pourcent list-group-item-warning"></div>
+      </div>
       </div>
       <div class="panel-footer text-center">
-      	<a href="#" data-toggle='modal' data-target='#prixModal'>En savoir plus</a>
+        <a href="#" data-toggle='modal' data-target='#prixModal'>En savoir plus</a>
       </div>
     </div>
     <div id="prixModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	    <div class="modal-dialog modal-lg">
-	      <div class="modal-content">
-	          <div class="modal-body">
-	          	<h3 class="text-center">Répartition du prix de vente</h3>
-      			{{price-chart refresh=refreshChart dataProvider=priceChartData}}
-	          </div>
-	      </div>
-	    </div>
-	  </div>
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+              <h3 class="text-center">Répartition du prix de vente</h3>
+            {{price-chart refresh=refreshChart dataProvider=priceChartData}}
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+  <div class="col-lg-2 col-md-3">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4 class="title-center">Produit</h4></div>
+        <div class="panel-body">
+          <img class="img-responsive" src="{{model.photo_url}}" alt=""> 
+        </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4 class="title-center">Distances</h4></div>
+      <div class="panel-body text-center">
+        <div>
+          {{ember-odometer value=model.kms format="(ddd)" theme="minimal"}}&nbsp;&nbsp;&nbsp;kms
+        </div>
+        <div class="clearfix"></div>
+        <h4>Modes de transports utilisés</h4>
+        <ul class="list-group">
+        {{#each model.modes_transports as |transport|}}
+            <li class="list-group-item">{{transport}}</li>
+        {{/each}}
+          
+        </ul>
+      </div>
+      {{!-- <div class="panel-footer text-center">
+        <a href="#">En savoir plus</a>
+      </div> --}}
+    </div>
+    
     {{#if model.mode_culture}}
     <div class="panel panel-default" data-position="left" data-intro="<p>Un indicateur factuel et clair vous permet de connaître la distance minimale parcourue à travers les différentes étapes de production, ou pour chaque ingrédient.</p>">
       <div class="panel-heading text-center"><h4>Mode d'élevage</h4></div>
@@ -237,6 +248,7 @@
       </div> --}}
     </div>
     {{/if}}
+
     {{#if model.emballage}}
     <div class="panel panel-default">
       <div class="panel-heading text-center">

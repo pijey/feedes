@@ -1,5 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-	titleToken: "Accueil"
+	i18n: Ember.inject.service(),
+	titleToken: function(){
+		return this.get('i18n').t('routes.home');
+	}
 });
